@@ -7,7 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Entry.h"
 
-@interface Cambridge_Library_SearchViewController : UIViewController
+@class SBJsonParser;
+@class Entry;
+
+@interface Cambridge_Library_SearchViewController : UIViewController {
+
+    IBOutlet UITextField *txt_searchTerm;
+    IBOutlet UITextField *txt_cardBarcode;
+    IBOutlet UITextField *txt_userSurname;
+    
+    NSMutableData *returnedData;
+	SBJsonParser *parser;
+	NSMutableArray *entries;
+    
+}
+
+//Properties
+@property (retain)NSMutableArray *entries;
+
+//Methods
+-(IBAction) search: (id)sender;
 
 @end
