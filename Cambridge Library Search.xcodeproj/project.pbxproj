@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		590415A213FC19DC00621782 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590415A113FC19DC00621782 /* UIKit.framework */; };
+		590415A413FC19DC00621782 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590415A313FC19DC00621782 /* Foundation.framework */; };
+		590415A613FC19DC00621782 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590415A513FC19DC00621782 /* CoreGraphics.framework */; };
+		590415AC13FC19DC00621782 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590415AA13FC19DC00621782 /* InfoPlist.strings */; };
+		590415AE13FC19DC00621782 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 590415AD13FC19DC00621782 /* main.m */; };
+		590415B213FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 590415B113FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m */; };
+		590415B513FC19DC00621782 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590415B313FC19DC00621782 /* MainWindow.xib */; };
+		590415B813FC19DC00621782 /* Cambridge_Library_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590415B713FC19DC00621782 /* Cambridge_Library_SearchViewController.m */; };
+		590415BB13FC19DC00621782 /* Cambridge_Library_SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590415B913FC19DC00621782 /* Cambridge_Library_SearchViewController.xib */; };
+		590415C313FC19DC00621782 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590415C213FC19DC00621782 /* SenTestingKit.framework */; };
+		590415C413FC19DC00621782 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590415A113FC19DC00621782 /* UIKit.framework */; };
+		590415C513FC19DC00621782 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590415A313FC19DC00621782 /* Foundation.framework */; };
+		590415C613FC19DC00621782 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590415A513FC19DC00621782 /* CoreGraphics.framework */; };
+		590415CE13FC19DC00621782 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590415CC13FC19DC00621782 /* InfoPlist.strings */; };
+		590415D013FC19DC00621782 /* Cambridge_Library_SearchTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 590415CF13FC19DC00621782 /* Cambridge_Library_SearchTests.h */; };
+		590415D213FC19DC00621782 /* Cambridge_Library_SearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 590415D113FC19DC00621782 /* Cambridge_Library_SearchTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		590415C713FC19DC00621782 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5904159413FC19DB00621782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5904159C13FC19DB00621782;
+			remoteInfo = "Cambridge Library Search";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5904159D13FC19DB00621782 /* Cambridge Library Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cambridge Library Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		590415A113FC19DC00621782 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		590415A313FC19DC00621782 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		590415A513FC19DC00621782 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		590415A913FC19DC00621782 /* Cambridge Library Search-Info.plist */ = {isa = PBXFileReference; path = "Cambridge Library Search-Info.plist"; sourceTree = "<group>"; };
+		590415AB13FC19DC00621782 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		590415AD13FC19DC00621782 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		590415AF13FC19DC00621782 /* Cambridge Library Search-Prefix.pch */ = {isa = PBXFileReference; path = "Cambridge Library Search-Prefix.pch"; sourceTree = "<group>"; };
+		590415B013FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.h */ = {isa = PBXFileReference; path = Cambridge_Library_SearchAppDelegate.h; sourceTree = "<group>"; };
+		590415B113FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cambridge_Library_SearchAppDelegate.m; sourceTree = "<group>"; };
+		590415B413FC19DC00621782 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		590415B613FC19DC00621782 /* Cambridge_Library_SearchViewController.h */ = {isa = PBXFileReference; path = Cambridge_Library_SearchViewController.h; sourceTree = "<group>"; };
+		590415B713FC19DC00621782 /* Cambridge_Library_SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cambridge_Library_SearchViewController.m; sourceTree = "<group>"; };
+		590415BA13FC19DC00621782 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Cambridge_Library_SearchViewController.xib; sourceTree = "<group>"; };
+		590415C113FC19DC00621782 /* Cambridge Library SearchTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cambridge Library SearchTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		590415C213FC19DC00621782 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		590415CB13FC19DC00621782 /* Cambridge Library SearchTests-Info.plist */ = {isa = PBXFileReference; path = "Cambridge Library SearchTests-Info.plist"; sourceTree = "<group>"; };
+		590415CD13FC19DC00621782 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		590415CF13FC19DC00621782 /* Cambridge_Library_SearchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cambridge_Library_SearchTests.h; sourceTree = "<group>"; };
+		590415D113FC19DC00621782 /* Cambridge_Library_SearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cambridge_Library_SearchTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5904159A13FC19DB00621782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590415A213FC19DC00621782 /* UIKit.framework in Frameworks */,
+				590415A413FC19DC00621782 /* Foundation.framework in Frameworks */,
+				590415A613FC19DC00621782 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		590415BD13FC19DC00621782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590415C313FC19DC00621782 /* SenTestingKit.framework in Frameworks */,
+				590415C413FC19DC00621782 /* UIKit.framework in Frameworks */,
+				590415C513FC19DC00621782 /* Foundation.framework in Frameworks */,
+				590415C613FC19DC00621782 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5904159213FC19DB00621782 = {
+			isa = PBXGroup;
+			children = (
+				590415A713FC19DC00621782 /* Cambridge Library Search */,
+				590415C913FC19DC00621782 /* Cambridge Library SearchTests */,
+				590415A013FC19DC00621782 /* Frameworks */,
+				5904159E13FC19DB00621782 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5904159E13FC19DB00621782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5904159D13FC19DB00621782 /* Cambridge Library Search.app */,
+				590415C113FC19DC00621782 /* Cambridge Library SearchTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		590415A013FC19DC00621782 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				590415A113FC19DC00621782 /* UIKit.framework */,
+				590415A313FC19DC00621782 /* Foundation.framework */,
+				590415A513FC19DC00621782 /* CoreGraphics.framework */,
+				590415C213FC19DC00621782 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		590415A713FC19DC00621782 /* Cambridge Library Search */ = {
+			isa = PBXGroup;
+			children = (
+				590415B013FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.h */,
+				590415B113FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m */,
+				590415B313FC19DC00621782 /* MainWindow.xib */,
+				590415B613FC19DC00621782 /* Cambridge_Library_SearchViewController.h */,
+				590415B713FC19DC00621782 /* Cambridge_Library_SearchViewController.m */,
+				590415B913FC19DC00621782 /* Cambridge_Library_SearchViewController.xib */,
+				590415A813FC19DC00621782 /* Supporting Files */,
+			);
+			path = "Cambridge Library Search";
+			sourceTree = "<group>";
+		};
+		590415A813FC19DC00621782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				590415A913FC19DC00621782 /* Cambridge Library Search-Info.plist */,
+				590415AA13FC19DC00621782 /* InfoPlist.strings */,
+				590415AD13FC19DC00621782 /* main.m */,
+				590415AF13FC19DC00621782 /* Cambridge Library Search-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		590415C913FC19DC00621782 /* Cambridge Library SearchTests */ = {
+			isa = PBXGroup;
+			children = (
+				590415CF13FC19DC00621782 /* Cambridge_Library_SearchTests.h */,
+				590415D113FC19DC00621782 /* Cambridge_Library_SearchTests.m */,
+				590415CA13FC19DC00621782 /* Supporting Files */,
+			);
+			path = "Cambridge Library SearchTests";
+			sourceTree = "<group>";
+		};
+		590415CA13FC19DC00621782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				590415CB13FC19DC00621782 /* Cambridge Library SearchTests-Info.plist */,
+				590415CC13FC19DC00621782 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5904159C13FC19DB00621782 /* Cambridge Library Search */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 590415D513FC19DC00621782 /* Build configuration list for PBXNativeTarget "Cambridge Library Search" */;
+			buildPhases = (
+				5904159913FC19DB00621782 /* Sources */,
+				5904159A13FC19DB00621782 /* Frameworks */,
+				5904159B13FC19DB00621782 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cambridge Library Search";
+			productName = "Cambridge Library Search";
+			productReference = 5904159D13FC19DB00621782 /* Cambridge Library Search.app */;
+			productType = "com.apple.product-type.application";
+		};
+		590415C013FC19DC00621782 /* Cambridge Library SearchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 590415D813FC19DC00621782 /* Build configuration list for PBXNativeTarget "Cambridge Library SearchTests" */;
+			buildPhases = (
+				590415BC13FC19DC00621782 /* Sources */,
+				590415BD13FC19DC00621782 /* Frameworks */,
+				590415BE13FC19DC00621782 /* Resources */,
+				590415BF13FC19DC00621782 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				590415C813FC19DC00621782 /* PBXTargetDependency */,
+			);
+			name = "Cambridge Library SearchTests";
+			productName = "Cambridge Library SearchTests";
+			productReference = 590415C113FC19DC00621782 /* Cambridge Library SearchTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5904159413FC19DB00621782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "James Snee";
+			};
+			buildConfigurationList = 5904159713FC19DB00621782 /* Build configuration list for PBXProject "Cambridge Library Search" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5904159213FC19DB00621782;
+			productRefGroup = 5904159E13FC19DB00621782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5904159C13FC19DB00621782 /* Cambridge Library Search */,
+				590415C013FC19DC00621782 /* Cambridge Library SearchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5904159B13FC19DB00621782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590415AC13FC19DC00621782 /* InfoPlist.strings in Resources */,
+				590415B513FC19DC00621782 /* MainWindow.xib in Resources */,
+				590415BB13FC19DC00621782 /* Cambridge_Library_SearchViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		590415BE13FC19DC00621782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590415CE13FC19DC00621782 /* InfoPlist.strings in Resources */,
+				590415D013FC19DC00621782 /* Cambridge_Library_SearchTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		590415BF13FC19DC00621782 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5904159913FC19DB00621782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590415AE13FC19DC00621782 /* main.m in Sources */,
+				590415B213FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m in Sources */,
+				590415B813FC19DC00621782 /* Cambridge_Library_SearchViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		590415BC13FC19DC00621782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590415D213FC19DC00621782 /* Cambridge_Library_SearchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		590415C813FC19DC00621782 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5904159C13FC19DB00621782 /* Cambridge Library Search */;
+			targetProxy = 590415C713FC19DC00621782 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		590415AA13FC19DC00621782 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590415AB13FC19DC00621782 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		590415B313FC19DC00621782 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590415B413FC19DC00621782 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		590415B913FC19DC00621782 /* Cambridge_Library_SearchViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590415BA13FC19DC00621782 /* en */,
+			);
+			name = Cambridge_Library_SearchViewController.xib;
+			sourceTree = "<group>";
+		};
+		590415CC13FC19DC00621782 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590415CD13FC19DC00621782 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		590415D313FC19DC00621782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		590415D413FC19DC00621782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		590415D613FC19DC00621782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
+				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		590415D713FC19DC00621782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
+				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		590415D913FC19DC00621782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cambridge Library Search.app/Cambridge Library Search";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
+				INFOPLIST_FILE = "Cambridge Library SearchTests/Cambridge Library SearchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		590415DA13FC19DC00621782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cambridge Library Search.app/Cambridge Library Search";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
+				INFOPLIST_FILE = "Cambridge Library SearchTests/Cambridge Library SearchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5904159713FC19DB00621782 /* Build configuration list for PBXProject "Cambridge Library Search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				590415D313FC19DC00621782 /* Debug */,
+				590415D413FC19DC00621782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		590415D513FC19DC00621782 /* Build configuration list for PBXNativeTarget "Cambridge Library Search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				590415D613FC19DC00621782 /* Debug */,
+				590415D713FC19DC00621782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		590415D813FC19DC00621782 /* Build configuration list for PBXNativeTarget "Cambridge Library SearchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				590415D913FC19DC00621782 /* Debug */,
+				590415DA13FC19DC00621782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5904159413FC19DB00621782 /* Project object */;
+}
