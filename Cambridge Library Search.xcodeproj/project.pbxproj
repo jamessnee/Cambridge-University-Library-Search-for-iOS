@@ -26,6 +26,8 @@
 		5904192013FC228300621782 /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5904190C13FC207800621782 /* libsbjson-ios.a */; };
 		5906C05613FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
 		5906C05713FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
+		59504E5613FD439100239970 /* SearchResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E5513FD439100239970 /* SearchResults.xib */; };
+		59504E5713FD439100239970 /* SearchResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E5513FD439100239970 /* SearchResults.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,7 @@
 		590418FD13FC207800621782 /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "../Frameworks_And_Libraries/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		5906C05413FC6E8C00F04A73 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		5906C05513FC6E8C00F04A73 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		59504E5513FD439100239970 /* SearchResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResults.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,12 +164,13 @@
 			children = (
 				590415B013FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.h */,
 				590415B113FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m */,
-				590415B313FC19DC00621782 /* MainWindow.xib */,
 				590415B613FC19DC00621782 /* Cambridge_Library_SearchViewController.h */,
 				590415B713FC19DC00621782 /* Cambridge_Library_SearchViewController.m */,
-				590415B913FC19DC00621782 /* Cambridge_Library_SearchViewController.xib */,
 				5906C05413FC6E8C00F04A73 /* Entry.h */,
 				5906C05513FC6E8C00F04A73 /* Entry.m */,
+				590415B313FC19DC00621782 /* MainWindow.xib */,
+				590415B913FC19DC00621782 /* Cambridge_Library_SearchViewController.xib */,
+				59504E5513FD439100239970 /* SearchResults.xib */,
 				590415A813FC19DC00621782 /* Supporting Files */,
 			);
 			path = "Cambridge Library Search";
@@ -324,6 +328,7 @@
 				590415AC13FC19DC00621782 /* InfoPlist.strings in Resources */,
 				590415B513FC19DC00621782 /* MainWindow.xib in Resources */,
 				590415BB13FC19DC00621782 /* Cambridge_Library_SearchViewController.xib in Resources */,
+				59504E5613FD439100239970 /* SearchResults.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +338,7 @@
 			files = (
 				590415CE13FC19DC00621782 /* InfoPlist.strings in Resources */,
 				590415D013FC19DC00621782 /* Cambridge_Library_SearchTests.h in Resources */,
+				59504E5713FD439100239970 /* SearchResults.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

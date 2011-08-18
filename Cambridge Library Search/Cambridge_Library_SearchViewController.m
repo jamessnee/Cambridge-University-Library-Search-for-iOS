@@ -37,6 +37,7 @@
 	
 	
 	[url release];
+	//[con release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +51,7 @@
 #pragma mark - Data Connection and JSON parsing
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	[returnedData setLength:0];
+	NSLog(@"Got a response");
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -79,10 +81,30 @@
 		en.author = [record objectForKey:@"author"];
 		en.title = [record objectForKey:@"title"];
 		en.edition = [record objectForKey:@"edition"];
+		en.isbn = [record objectForKey:@"normalisedIsbn"];
+		
+		//Now delve into the holding data -- this gets a bit strange and I'm going to figure out a
+		//better way of doing things later
+		NSDictionary *holdings = (NSDictionary *) [record objectForKey:@"holdings"];
+		id holding_id  = (id) [holdings objectForKey:@"holding"];
+		if([holding_id isKindOfClass:[NSDictionary class]]){
+			NSDictionary *holding = (NSDictionary *) holding_id;
+			en.location_name = [holding objectForKey:@"locationName"];
+			en.location_code = [holding objectForKey:@"locationCode"];
+		}else if ([holding_id isKindOfClass:[NSArray class]]){
+			NSLog(@"THIS IS AN ARRAY PANIC!");
+		}
+		
+		//Tidy up before the next itteration
 		[entries addObject:en];
 		[en release];
 	}
 	[responseString release];
+	
+	for(Entry *en in entries){
+		NSLog(@"Title: %@",en.title);
+		NSLog(@"Location Name: %@",en.location_name);
+	}
 }
 
 #pragma mark - View lifecycle

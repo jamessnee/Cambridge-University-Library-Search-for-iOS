@@ -10,7 +10,7 @@
 
 @implementation Entry
 
-@synthesize author, title, edition, isbn, location_name, location_id;
+@synthesize author, title, edition, isbn, location_name, location_code;
 
 - (id)init
 {
