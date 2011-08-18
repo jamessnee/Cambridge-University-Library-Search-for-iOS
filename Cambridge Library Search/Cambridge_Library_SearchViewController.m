@@ -8,6 +8,7 @@
 
 #import "Cambridge_Library_SearchViewController.h"
 #import <SBJson/SBJson.h>
+#import "SearchResultsViewController.h"
 
 @implementation Cambridge_Library_SearchViewController
 
@@ -16,6 +17,9 @@
 #pragma mark - Setup
 
 -(IBAction)search:(id)sender{
+	
+	//Hide the keyboard
+	[txt_searchTerm resignFirstResponder];
     
     //Build up the request 
     NSString *searchTerm = [txt_searchTerm text];
@@ -66,6 +70,10 @@
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection{
 	[connection release];
+	
+	//Show the activity loading thingey
+	
+	
 	NSString *responseString = [[NSString alloc]initWithData:returnedData encoding:NSUTF8StringEncoding];
 	
 	//init entries array
@@ -101,10 +109,14 @@
 	}
 	[responseString release];
 	
+	/* - DEBUG
 	for(Entry *en in entries){
 		NSLog(@"Title: %@",en.title);
 		NSLog(@"Location Name: %@",en.location_name);
 	}
+	 */
+	//Show the results
+	[self switchView];
 }
 
 #pragma mark - View lifecycle
@@ -114,6 +126,7 @@
     [super viewDidLoad];
     
     returnedData = [[NSMutableData data] retain];
+	self.title = @"Search";
 }
 
 - (void)viewDidUnload
@@ -127,6 +140,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)switchView{
+	SearchResultsViewController *srvc = [[SearchResultsViewController alloc]initWithNibName:@"SearchResultsViewController" bundle:nil entries:entries];
+	[self.navigationController pushViewController:srvc animated:YES];
 }
 
 @end

@@ -29,5 +29,6 @@
 
 //Methods
 -(IBAction) search: (id)sender;
+-(void)switchView;
 
 @end

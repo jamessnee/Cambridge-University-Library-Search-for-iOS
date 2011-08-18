@@ -26,8 +26,14 @@
 		5904192013FC228300621782 /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5904190C13FC207800621782 /* libsbjson-ios.a */; };
 		5906C05613FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
 		5906C05713FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
-		59504E5613FD439100239970 /* SearchResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E5513FD439100239970 /* SearchResults.xib */; };
-		59504E5713FD439100239970 /* SearchResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E5513FD439100239970 /* SearchResults.xib */; };
+		59504E6213FD464F00239970 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E6013FD464F00239970 /* SearchResultsViewController.m */; };
+		59504E6313FD464F00239970 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E6013FD464F00239970 /* SearchResultsViewController.m */; };
+		59504E6413FD464F00239970 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E6113FD464F00239970 /* SearchResultsViewController.xib */; };
+		59504E6513FD464F00239970 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E6113FD464F00239970 /* SearchResultsViewController.xib */; };
+		59504E7213FD6A4500239970 /* EntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E7013FD6A4400239970 /* EntryView.m */; };
+		59504E7313FD6A4500239970 /* EntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E7013FD6A4400239970 /* EntryView.m */; };
+		59504E7413FD6A4500239970 /* EntryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E7113FD6A4400239970 /* EntryView.xib */; };
+		59504E7513FD6A4500239970 /* EntryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E7113FD6A4400239970 /* EntryView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +105,12 @@
 		590418FD13FC207800621782 /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "../Frameworks_And_Libraries/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		5906C05413FC6E8C00F04A73 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		5906C05513FC6E8C00F04A73 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
-		59504E5513FD439100239970 /* SearchResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResults.xib; sourceTree = "<group>"; };
+		59504E5F13FD464F00239970 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
+		59504E6013FD464F00239970 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		59504E6113FD464F00239970 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
+		59504E6F13FD6A4400239970 /* EntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryView.h; sourceTree = "<group>"; };
+		59504E7013FD6A4400239970 /* EntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryView.m; sourceTree = "<group>"; };
+		59504E7113FD6A4400239970 /* EntryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,11 +177,16 @@
 				590415B113FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m */,
 				590415B613FC19DC00621782 /* Cambridge_Library_SearchViewController.h */,
 				590415B713FC19DC00621782 /* Cambridge_Library_SearchViewController.m */,
+				590415B913FC19DC00621782 /* Cambridge_Library_SearchViewController.xib */,
+				59504E5F13FD464F00239970 /* SearchResultsViewController.h */,
+				59504E6013FD464F00239970 /* SearchResultsViewController.m */,
+				59504E6113FD464F00239970 /* SearchResultsViewController.xib */,
+				59504E6F13FD6A4400239970 /* EntryView.h */,
+				59504E7013FD6A4400239970 /* EntryView.m */,
+				59504E7113FD6A4400239970 /* EntryView.xib */,
+				590415B313FC19DC00621782 /* MainWindow.xib */,
 				5906C05413FC6E8C00F04A73 /* Entry.h */,
 				5906C05513FC6E8C00F04A73 /* Entry.m */,
-				590415B313FC19DC00621782 /* MainWindow.xib */,
-				590415B913FC19DC00621782 /* Cambridge_Library_SearchViewController.xib */,
-				59504E5513FD439100239970 /* SearchResults.xib */,
 				590415A813FC19DC00621782 /* Supporting Files */,
 			);
 			path = "Cambridge Library Search";
@@ -263,6 +279,7 @@
 		5904159413FC19DB00621782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "James Snee";
 			};
 			buildConfigurationList = 5904159713FC19DB00621782 /* Build configuration list for PBXProject "Cambridge Library Search" */;
@@ -328,7 +345,8 @@
 				590415AC13FC19DC00621782 /* InfoPlist.strings in Resources */,
 				590415B513FC19DC00621782 /* MainWindow.xib in Resources */,
 				590415BB13FC19DC00621782 /* Cambridge_Library_SearchViewController.xib in Resources */,
-				59504E5613FD439100239970 /* SearchResults.xib in Resources */,
+				59504E6413FD464F00239970 /* SearchResultsViewController.xib in Resources */,
+				59504E7413FD6A4500239970 /* EntryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +356,8 @@
 			files = (
 				590415CE13FC19DC00621782 /* InfoPlist.strings in Resources */,
 				590415D013FC19DC00621782 /* Cambridge_Library_SearchTests.h in Resources */,
-				59504E5713FD439100239970 /* SearchResults.xib in Resources */,
+				59504E6513FD464F00239970 /* SearchResultsViewController.xib in Resources */,
+				59504E7513FD6A4500239970 /* EntryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +388,8 @@
 				590415B213FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m in Sources */,
 				590415B813FC19DC00621782 /* Cambridge_Library_SearchViewController.m in Sources */,
 				5906C05613FC6E8C00F04A73 /* Entry.m in Sources */,
+				59504E6213FD464F00239970 /* SearchResultsViewController.m in Sources */,
+				59504E7213FD6A4500239970 /* EntryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +399,8 @@
 			files = (
 				590415D213FC19DC00621782 /* Cambridge_Library_SearchTests.m in Sources */,
 				5906C05713FC6E8C00F04A73 /* Entry.m in Sources */,
+				59504E6313FD464F00239970 /* SearchResultsViewController.m in Sources */,
+				59504E7313FD6A4500239970 /* EntryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +460,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -451,7 +474,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18605399-CE9C-4022-8441-47172560A6A4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -468,7 +492,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -478,10 +502,12 @@
 		590415D613FC19DC00621782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

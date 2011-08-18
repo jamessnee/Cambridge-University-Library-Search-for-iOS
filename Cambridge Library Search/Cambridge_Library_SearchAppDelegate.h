@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) IBOutlet Cambridge_Library_SearchViewController *viewController;
+//@property (nonatomic, retain) IBOutlet Cambridge_Library_SearchViewController *viewController;
+@property (nonatomic, retain) IBOutlet UINavigationController *navController;
 
 @end
