@@ -26,6 +26,8 @@
 		5904192013FC228300621782 /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5904190C13FC207800621782 /* libsbjson-ios.a */; };
 		5906C05613FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
 		5906C05713FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
+		5945D7FF13FE911300A6EEE7 /* EntryView_Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 5945D7FD13FE911300A6EEE7 /* EntryView_Group.m */; };
+		5945D80013FE911300A6EEE7 /* EntryView_Group.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5945D7FE13FE911300A6EEE7 /* EntryView_Group.xib */; };
 		59504E6213FD464F00239970 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E6013FD464F00239970 /* SearchResultsViewController.m */; };
 		59504E6313FD464F00239970 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E6013FD464F00239970 /* SearchResultsViewController.m */; };
 		59504E6413FD464F00239970 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E6113FD464F00239970 /* SearchResultsViewController.xib */; };
@@ -34,6 +36,9 @@
 		59504E7313FD6A4500239970 /* EntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E7013FD6A4400239970 /* EntryView.m */; };
 		59504E7413FD6A4500239970 /* EntryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E7113FD6A4400239970 /* EntryView.xib */; };
 		59504E7513FD6A4500239970 /* EntryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E7113FD6A4400239970 /* EntryView.xib */; };
+		59C9820B13FE9CAC00EA27E0 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C9820913FE9CAC00EA27E0 /* MapView.m */; };
+		59C9820C13FE9CAC00EA27E0 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C9820A13FE9CAC00EA27E0 /* MapView.xib */; };
+		59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C9820D13FE9E7300EA27E0 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,12 +110,19 @@
 		590418FD13FC207800621782 /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "../Frameworks_And_Libraries/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		5906C05413FC6E8C00F04A73 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		5906C05513FC6E8C00F04A73 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		5945D7FC13FE911300A6EEE7 /* EntryView_Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryView_Group.h; sourceTree = "<group>"; };
+		5945D7FD13FE911300A6EEE7 /* EntryView_Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryView_Group.m; sourceTree = "<group>"; };
+		5945D7FE13FE911300A6EEE7 /* EntryView_Group.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryView_Group.xib; sourceTree = "<group>"; };
 		59504E5F13FD464F00239970 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		59504E6013FD464F00239970 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
 		59504E6113FD464F00239970 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
 		59504E6F13FD6A4400239970 /* EntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryView.h; sourceTree = "<group>"; };
 		59504E7013FD6A4400239970 /* EntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryView.m; sourceTree = "<group>"; };
 		59504E7113FD6A4400239970 /* EntryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryView.xib; sourceTree = "<group>"; };
+		59C9820813FE9CAC00EA27E0 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		59C9820913FE9CAC00EA27E0 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		59C9820A13FE9CAC00EA27E0 /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
+		59C9820D13FE9E7300EA27E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */,
 				5904192013FC228300621782 /* libsbjson-ios.a in Frameworks */,
 				590415A213FC19DC00621782 /* UIKit.framework in Frameworks */,
 				590415A413FC19DC00621782 /* Foundation.framework in Frameworks */,
@@ -162,6 +175,7 @@
 		590415A013FC19DC00621782 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59C9820D13FE9E7300EA27E0 /* MapKit.framework */,
 				590415A113FC19DC00621782 /* UIKit.framework */,
 				590415A313FC19DC00621782 /* Foundation.framework */,
 				590415A513FC19DC00621782 /* CoreGraphics.framework */,
@@ -184,6 +198,12 @@
 				59504E6F13FD6A4400239970 /* EntryView.h */,
 				59504E7013FD6A4400239970 /* EntryView.m */,
 				59504E7113FD6A4400239970 /* EntryView.xib */,
+				5945D7FC13FE911300A6EEE7 /* EntryView_Group.h */,
+				5945D7FD13FE911300A6EEE7 /* EntryView_Group.m */,
+				5945D7FE13FE911300A6EEE7 /* EntryView_Group.xib */,
+				59C9820813FE9CAC00EA27E0 /* MapView.h */,
+				59C9820913FE9CAC00EA27E0 /* MapView.m */,
+				59C9820A13FE9CAC00EA27E0 /* MapView.xib */,
 				590415B313FC19DC00621782 /* MainWindow.xib */,
 				5906C05413FC6E8C00F04A73 /* Entry.h */,
 				5906C05513FC6E8C00F04A73 /* Entry.m */,
@@ -347,6 +367,8 @@
 				590415BB13FC19DC00621782 /* Cambridge_Library_SearchViewController.xib in Resources */,
 				59504E6413FD464F00239970 /* SearchResultsViewController.xib in Resources */,
 				59504E7413FD6A4500239970 /* EntryView.xib in Resources */,
+				5945D80013FE911300A6EEE7 /* EntryView_Group.xib in Resources */,
+				59C9820C13FE9CAC00EA27E0 /* MapView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +412,8 @@
 				5906C05613FC6E8C00F04A73 /* Entry.m in Sources */,
 				59504E6213FD464F00239970 /* SearchResultsViewController.m in Sources */,
 				59504E7213FD6A4500239970 /* EntryView.m in Sources */,
+				5945D7FF13FE911300A6EEE7 /* EntryView_Group.m in Sources */,
+				59C9820B13FE9CAC00EA27E0 /* MapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

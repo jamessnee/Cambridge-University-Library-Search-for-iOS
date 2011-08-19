@@ -32,8 +32,9 @@
     [url appendString:database];
     [url appendString:format];
     NSLog(@"Searching for: %@",url);
+	NSString* escapedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:escapedUrl]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 	
 	//Setup the parser after the request (fake threading I guess)
@@ -145,6 +146,10 @@
 - (void)switchView{
 	SearchResultsViewController *srvc = [[SearchResultsViewController alloc]initWithNibName:@"SearchResultsViewController" bundle:nil entries:entries];
 	[self.navigationController pushViewController:srvc animated:YES];
+}
+
+-(IBAction)clearSearchField:(id)sender{
+	txt_searchTerm.text = @"";
 }
 
 @end

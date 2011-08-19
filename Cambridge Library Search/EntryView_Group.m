@@ -1,19 +1,17 @@
 //
-//  SearchResultsViewController.m
+//  EntryView_Group.m
 //  Cambridge Library Search
 //
-//  Created by James Snee on 18/08/2011.
-//  Copyright 2011 James Snee. All rights reserved.
+//  Created by James Snee on 19/08/2011.
+//  Copyright (c) 2011 James Snee. All rights reserved.
 //
 
-#import "SearchResultsViewController.h"
-#import "Entry.h"
-#import "EntryView.h"
 #import "EntryView_Group.h"
+#import "MapView.h"
 
-@implementation SearchResultsViewController
+@implementation EntryView_Group
 
-@synthesize searchResults;
+@synthesize currEntry,recordTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,13 +22,12 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entries:(NSArray *)entries{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entry:(Entry *)entry{
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		searchResults = entries;
-		NSLog(@"%d",[searchResults count]);
-	}
-	return self;
+    if (self) {
+        currEntry = [[NSArray alloc] initWithObjects:entry.title,entry.author,entry.edition,entry.isbn,entry.location_name,entry.location_code, nil];
+    }
+    return self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +44,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	[self setTitle:@"Search Results"];
 }
 
 - (void)viewDidUnload
@@ -63,14 +59,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table View Controller
-
+#pragma mark - UITableView controller stuff
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-	return 1;
+	return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return [searchResults count];
+	if(section == 0)
+		return 2;
+	else
+		return 4;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+	if(section == 0)
+		return @"Book Details:";
+	else
+		return @"Holding Details:";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,24 +85,32 @@
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
 	}
-
-	Entry *en = (Entry *) [searchResults objectAtIndex:indexPath.row];
-	NSString *book_title = en.title;
-	[cell.textLabel setNumberOfLines:3];
+	
+	NSUInteger index;
+	if(indexPath.section==0)
+		index = (NSUInteger) indexPath.row;
+	else
+		index = (NSUInteger) indexPath.row + 2;
+	if([[currEntry objectAtIndex:index] isEqual:@""]){
+		[cell.textLabel setText:@"No Details"];
+	}
+	
+	[cell.textLabel setNumberOfLines:4];
 	[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
-	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-	[[cell textLabel] setText:book_title];
+	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+	[cell.textLabel setText:[currEntry objectAtIndex:index]];
 	
 	return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Entry *en = (Entry *) [searchResults objectAtIndex:indexPath.row];
-	//EntryView *entryView = [[EntryView alloc]initWithNibName:@"EntryView" bundle:nil entry:en];
-	EntryView_Group *entryView = [[EntryView_Group alloc]initWithNibName:@"EntryView_Group" bundle:nil entry:en];
-	[self.navigationController pushViewController:entryView animated:YES];
+	if(indexPath.section == 1)
+		if(indexPath.row == 2){
+			UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+			
+			MapView *map = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andLocation:@"UL"];
+			[self.navigationController pushViewController:map animated:YES];
+		}
 }
-
-
 
 @end

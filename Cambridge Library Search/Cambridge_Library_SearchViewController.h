@@ -15,8 +15,6 @@
 @interface Cambridge_Library_SearchViewController : UIViewController {
 
     IBOutlet UITextField *txt_searchTerm;
-    IBOutlet UITextField *txt_cardBarcode;
-    IBOutlet UITextField *txt_userSurname;
     
     NSMutableData *returnedData;
 	SBJsonParser *parser;
@@ -29,6 +27,7 @@
 
 //Methods
 -(IBAction) search: (id)sender;
+-(IBAction) clearSearchField:(id)sender;
 -(void)switchView;
 
 @end
