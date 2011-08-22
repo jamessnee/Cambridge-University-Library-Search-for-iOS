@@ -12,9 +12,11 @@
 @class SBJsonParser;
 @class Entry;
 
-@interface Cambridge_Library_SearchViewController : UIViewController {
+@interface Cambridge_Library_SearchViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource> {
 
     IBOutlet UITextField *txt_searchTerm;
+	IBOutlet UIPickerView *searchTypePicker;
+	NSArray *searchTypes;
     
     NSMutableData *returnedData;
 	SBJsonParser *parser;
@@ -24,10 +26,11 @@
 
 //Properties
 @property (retain)NSMutableArray *entries;
+@property (retain)NSArray *searchTypes;
 
 //Methods
 -(IBAction) search: (id)sender;
--(IBAction) clearSearchField:(id)sender;
 -(void)switchView;
+-(IBAction)hideKeyboard: (id)sender;
 
 @end

@@ -8,7 +8,6 @@
 
 #import "SearchResultsViewController.h"
 #import "Entry.h"
-#import "EntryView.h"
 #import "EntryView_Group.h"
 
 @implementation SearchResultsViewController
@@ -92,8 +91,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+	
 	Entry *en = (Entry *) [searchResults objectAtIndex:indexPath.row];
-	//EntryView *entryView = [[EntryView alloc]initWithNibName:@"EntryView" bundle:nil entry:en];
 	EntryView_Group *entryView = [[EntryView_Group alloc]initWithNibName:@"EntryView_Group" bundle:nil entry:en];
 	[self.navigationController pushViewController:entryView animated:YES];
 }

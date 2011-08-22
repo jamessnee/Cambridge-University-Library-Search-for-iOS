@@ -8,17 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "RecordLocation.h"
 
 @interface MapView : UIViewController<MKMapViewDelegate>{
 	MKMapView *mapView;
 	NSString *locationToView;
 	NSDictionary *libraryLocations;
+	RecordLocation *recordLocation;
 }
 
 @property (retain) IBOutlet MKMapView *mapView;
 @property (retain) NSString *locationToView;
 @property (retain) NSDictionary *libraryLocations;
+@property (retain) RecordLocation *recordLocation;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andLocation:(NSString *)location;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocation:(RecordLocation *)n_recordLocation;
 
 @end

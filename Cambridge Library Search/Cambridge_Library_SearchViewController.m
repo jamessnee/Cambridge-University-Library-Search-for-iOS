@@ -12,10 +12,11 @@
 
 @implementation Cambridge_Library_SearchViewController
 
-@synthesize entries;
+@synthesize entries, searchTypes;
+
+NSString *selectedSearchType;
 
 #pragma mark - Setup
-
 -(IBAction)search:(id)sender{
 	
 	//Hide the keyboard
@@ -120,14 +121,43 @@
 	[self switchView];
 }
 
-#pragma mark - View lifecycle
+#pragma mark - UIPickerView stuff
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+	return 1;
+}
 
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+	return [searchTypes count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+	return [searchTypes objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+	selectedSearchType = [searchTypes objectAtIndex:row];
+}
+
+#pragma mark - View lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     returnedData = [[NSMutableData data] retain];
 	self.title = @"Search";
+	
+	searchTypes = [[NSArray alloc] initWithObjects:@"General",
+	@"Title",
+	@"Author Name",
+	@"Subject",
+	@"ISBN",
+	@"Series",
+	@"Publisher:Date",
+	@"Publisher:Name",
+	@"ISSN",
+	@"Personal Name", nil];
+	
+	selectedSearchType = @"General";
 }
 
 - (void)viewDidUnload
@@ -148,8 +178,9 @@
 	[self.navigationController pushViewController:srvc animated:YES];
 }
 
--(IBAction)clearSearchField:(id)sender{
-	txt_searchTerm.text = @"";
+-(IBAction)hideKeyboard:(id)sender{
+	[sender resignFirstResponder];
 }
+
 
 @end

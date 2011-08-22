@@ -8,10 +8,12 @@
 
 #import "EntryView_Group.h"
 #import "MapView.h"
+#import "RecordLocation.h"
+#import <MapKit/MapKit.h>
 
 @implementation EntryView_Group
 
-@synthesize currEntry,recordTable;
+@synthesize currEntry,recordTable, entry_full;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +28,7 @@
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         currEntry = [[NSArray alloc] initWithObjects:entry.title,entry.author,entry.edition,entry.isbn,entry.location_name,entry.location_code, nil];
+		entry_full = entry;
     }
     return self;
 }
@@ -104,11 +107,12 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 	if(indexPath.section == 1)
 		if(indexPath.row == 2){
-			UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+			RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:entry_full.location_name andSubTitle:entry_full.title andLibraryName:entry_full.location_name];
 			
-			MapView *map = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andLocation:@"UL"];
+			MapView *map = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andRecordLocation:recordLocation];
 			[self.navigationController pushViewController:map animated:YES];
 		}
 }

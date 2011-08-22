@@ -8,10 +8,11 @@
 
 #import "MapView.h"
 #import <MapKit/MapKit.h>
+#import "RecordLocation.h"
 
 @implementation MapView
 
-@synthesize mapView, locationToView, libraryLocations;
+@synthesize mapView, locationToView, libraryLocations, recordLocation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,18 +23,14 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andLocation:(NSString *)location{
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocation:(RecordLocation *)n_recordLocation{
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		locationToView = location;
-		NSLog(@"LOCATION TO VIEW: %@",locationToView);
-		//SETUP LOCATIONS - this should be moved to either a db or just static define statments
-		NSArray *libraries = [[NSArray alloc] initWithObjects:@"UL",@"MedicalLibrary",@"SquireLawLibrary",@"CentralScienceLibrary",@"BettyGordonMooreLibrary", nil];
-		NSArray *locations = [[NSArray alloc] initWithObjects:@"52.204917,0.107565",@"52.186404,0.137709",@"52.2029,0.110727",@"52.203695,0.119054",@"52.212622,0.102024", nil];
-		libraryLocations = [[NSDictionary alloc] initWithObjects:locations forKeys:libraries];
+		self.recordLocation = n_recordLocation;
     }
     return self;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -50,18 +47,16 @@
     [super viewDidLoad];
     mapView.mapType = MKMapTypeStandard;
 	
-	NSString *longLat = [libraryLocations objectForKey:locationToView];
-	NSArray *coords = [longLat componentsSeparatedByString:@","];
-	NSLog(@"%@",longLat);
 	
-	float coord_long = [[coords objectAtIndex:1] floatValue];
-	float coord_lat = [[coords objectAtIndex:0] floatValue];
+	//OK OK This is horrid yes but I'm pressed for time
+	CLLocationCoordinate2D coord = recordLocation.coordinate;
 	
-	CLLocationCoordinate2D coord = {latitude: coord_lat, longitude: coord_long};
 	MKCoordinateSpan span = {latitudeDelta: 0.009, longitudeDelta: 0.009};
 	MKCoordinateRegion region = {coord, span};
 	
 	[mapView setRegion:region];
+	
+	[mapView addAnnotation:recordLocation];
 }
 
 - (void)viewDidUnload
