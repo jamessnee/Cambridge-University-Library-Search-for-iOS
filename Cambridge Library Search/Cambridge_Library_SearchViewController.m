@@ -14,7 +14,7 @@
 
 @synthesize entries, searchTypes;
 
-NSString *selectedSearchType;
+NSInteger selectedSearchType;
 
 #pragma mark - Setup
 -(IBAction)search:(id)sender{
@@ -28,10 +28,51 @@ NSString *selectedSearchType;
     NSString *searchArg = [NSString stringWithFormat:@"searchArg=%@&",searchTerm];
     NSString *database = (@"databases=cambrdgedb&");
     NSString *format = (@"format=json");
+	
+	//Get the search type code
+	NSMutableString *searchCode = [[NSMutableString alloc]initWithString:@"searchCode="];
+	switch (selectedSearchType) {
+		case 0:
+			[searchCode appendString:@"GKEY&"];
+			break;
+		case 1:
+			[searchCode appendString:@"TKEY&"];
+			break;
+		case 2:
+			[searchCode appendString: @"NKey&"];
+			break;
+		case 3:
+			[searchCode appendString:@"SKEY&"];
+			break;
+		case 4:
+			[searchCode appendString:@"ISBN&"];
+			break;
+		case 5:
+			[searchCode appendString:@"SERI&"];
+			break;
+		case 6:
+			[searchCode appendString:@"260C&"];
+			break;
+		case 7:
+			[searchCode appendString:@"260B&"];
+			break;
+		case 8:
+			[searchCode appendString:@"ISSN&"];
+			break;
+		case 9:
+			[searchCode appendString:@"100A&"];
+			break;
+		default:
+			[searchCode appendString:@"GKEY&"];
+			break;
+	}
+	
     [url appendString:@"http://www.lib.cam.ac.uk/api/voyager/newtonSearch.cgi?"];
     [url appendString:searchArg];
     [url appendString:database];
+	[url appendFormat:searchCode];
     [url appendString:format];
+	
     NSLog(@"Searching for: %@",url);
 	NSString* escapedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -135,7 +176,8 @@ NSString *selectedSearchType;
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-	selectedSearchType = [searchTypes objectAtIndex:row];
+	selectedSearchType = row;
+	NSLog(@"Converted into %d",selectedSearchType);
 }
 
 #pragma mark - View lifecycle
@@ -157,7 +199,7 @@ NSString *selectedSearchType;
 	@"ISSN",
 	@"Personal Name", nil];
 	
-	selectedSearchType = @"General";
+	selectedSearchType = 0;
 }
 
 - (void)viewDidUnload
