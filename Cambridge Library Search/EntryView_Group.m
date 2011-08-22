@@ -94,9 +94,6 @@
 		index = (NSUInteger) indexPath.row;
 	else
 		index = (NSUInteger) indexPath.row + 2;
-	if([[currEntry objectAtIndex:index] isEqual:@""]){
-		[cell.textLabel setText:@"No Details"];
-	}
 	
 	[cell.textLabel setNumberOfLines:4];
 	[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];

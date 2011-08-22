@@ -36,6 +36,8 @@
 				coordinate.longitude = longd;
 			}
 		}
+		[libraries release];
+		[locations release];
 	}
 	return self;
 }

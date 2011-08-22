@@ -19,6 +19,10 @@ NSInteger selectedSearchType;
 #pragma mark - Setup
 -(IBAction)search:(id)sender{
 	
+	//Activity indicator
+	[activityIndicator setHidden:NO];
+	[activityIndicator startAnimating];
+	
 	//Hide the keyboard
 	[txt_searchTerm resignFirstResponder];
     
@@ -26,8 +30,8 @@ NSInteger selectedSearchType;
     NSString *searchTerm = [txt_searchTerm text];
     NSMutableString *url = [[NSMutableString alloc] init];
     NSString *searchArg = [NSString stringWithFormat:@"searchArg=%@&",searchTerm];
-    NSString *database = (@"databases=cambrdgedb&");
-    NSString *format = (@"format=json");
+    NSString *database = @"databases=cambrdgedb&";
+    NSString *format = @"format=json";
 	
 	//Get the search type code
 	NSMutableString *searchCode = [[NSMutableString alloc]initWithString:@"searchCode="];
@@ -82,7 +86,7 @@ NSInteger selectedSearchType;
 	//Setup the parser after the request (fake threading I guess)
 	parser = [[SBJsonParser alloc]init];
 	
-	
+	[searchCode release];
 	[url release];
 	//[con release];
 }
@@ -113,9 +117,6 @@ NSInteger selectedSearchType;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection{
 	[connection release];
-	
-	//Show the activity loading thingey
-	
 	
 	NSString *responseString = [[NSString alloc]initWithData:returnedData encoding:NSUTF8StringEncoding];
 	
@@ -151,6 +152,7 @@ NSInteger selectedSearchType;
 		[en release];
 	}
 	[responseString release];
+	[parser release];
 	
 	/* - DEBUG
 	for(Entry *en in entries){
@@ -216,6 +218,7 @@ NSInteger selectedSearchType;
 }
 
 - (void)switchView{
+	[activityIndicator stopAnimating];
 	SearchResultsViewController *srvc = [[SearchResultsViewController alloc]initWithNibName:@"SearchResultsViewController" bundle:nil entries:entries];
 	[self.navigationController pushViewController:srvc animated:YES];
 }

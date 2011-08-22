@@ -21,6 +21,8 @@
     NSMutableData *returnedData;
 	SBJsonParser *parser;
 	NSMutableArray *entries;
+	
+	IBOutlet UIActivityIndicatorView *activityIndicator;
     
 }
 
