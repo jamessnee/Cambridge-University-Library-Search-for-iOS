@@ -30,7 +30,7 @@
 
 @implementation Entry
 
-@synthesize author, title, edition, isbn, location_name, location_code;
+@synthesize author, title, edition, isbn, location_names, location_codes;
 
 - (id)init
 {

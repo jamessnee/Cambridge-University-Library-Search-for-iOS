@@ -35,6 +35,8 @@
 
 @synthesize currEntry,recordTable, entry_full;
 
+NSInteger currPosInArray = 0;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,8 +49,10 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entry:(Entry *)entry{
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        currEntry = [[NSArray alloc] initWithObjects:entry.title,entry.author,entry.edition,entry.isbn,entry.location_name,entry.location_code, nil];
+        currEntry = [[NSArray alloc] initWithObjects:entry.title,entry.author,entry.edition,entry.isbn,[entry.location_names objectAtIndex:0],[entry.location_codes objectAtIndex:0], nil];
 		entry_full = entry;
+		NSLog(@"Holding library names: %@",[entry_full.location_names description]);
+		NSLog(@"Holding library codes: %@",[entry_full.location_codes description]);
     }
     return self;
 }
@@ -66,14 +70,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	
+	//Reset currPosInArray
+	currPosInArray = 0;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -84,21 +89,43 @@
 
 #pragma mark - UITableView controller stuff
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-	return 2;
+	NSInteger numOfSections = 2+[entry_full.location_names count];
+	NSLog(@"Setting number of sections to %d",numOfSections);
+	return numOfSections;
 }
 
+/*
+ ===========
+	Title
+	Author
+ ===========
+ 
+ ===========
+	Edition
+ ===========
+ 
+ ===========
+   Lib Name
+   Lib Code
+ ====...====
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	if(section == 0)
 		return 2;
+	else if(section == 1)
+		return 1;
 	else
-		return 4;
+		return 2;
+	
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 	if(section == 0)
 		return @"Book Details:";
+	else if(section == 1)
+		return @"Edition Details:";
 	else
-		return @"Holding Details:";
+		return @"Holding Details";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,25 +136,42 @@
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
 	}
 	
-	NSUInteger index;
-	if(indexPath.section==0)
-		index = (NSUInteger) indexPath.row;
-	else
-		index = (NSUInteger) indexPath.row + 2;
+	if(indexPath.section==0){
+		if(indexPath.row==0)
+			[cell.textLabel setText:entry_full.title];
+		else if(indexPath.row == 1)
+			[cell.textLabel setText:entry_full.author];
+	}
+	else if(indexPath.section==1)
+		[cell.textLabel setText:entry_full.edition];
+	else if(indexPath.section>=2){
+		if(indexPath.row==0){
+			[cell.textLabel setText:[entry_full.location_names objectAtIndex:currPosInArray]];
+		}
+		else if(indexPath.row==1){
+			[cell.textLabel setText:[entry_full.location_codes objectAtIndex:currPosInArray]];
+			currPosInArray++;
+			NSLog(@"CURRENT POS IN ARRAY %d",currPosInArray);
+		}
+	}
 	
+	//Fix the cells label
 	[cell.textLabel setNumberOfLines:4];
 	[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
 	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
-	[cell.textLabel setText:[currEntry objectAtIndex:index]];
+	//[cell.textLabel setText:[currEntry objectAtIndex:index]];
 	
 	return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
-	if(indexPath.section == 1)
-		if(indexPath.row == 2){
-			RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:entry_full.location_name andSubTitle:entry_full.title andLibraryName:entry_full.location_name];
+	if(indexPath.section >= 2)
+		if(indexPath.row == 0){
+			//RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:[entry_full.location_names objectAtIndex:0] andSubTitle:entry_full.title andLibraryName:[entry_full.location_names objectAtIndex:0]];
+			
+			UITableViewCell *currCell = [tableView cellForRowAtIndexPath:indexPath];
+			RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:currCell.textLabel.text andSubTitle:entry_full.title andLibraryName:currCell.textLabel.text];
 			
 			MapView *map = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andRecordLocation:recordLocation];
 			[self.navigationController pushViewController:map animated:YES];

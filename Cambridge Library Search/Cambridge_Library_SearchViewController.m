@@ -148,6 +148,8 @@ NSInteger selectedSearchType;
 	NSDictionary *data = (NSDictionary *) [parser objectWithString:responseString error:&jsonError];
 	NSDictionary *results = (NSDictionary *) [data objectForKey:@"search_results"];
 	NSDictionary *bib_record = (NSDictionary *) [results objectForKey:@"bib_record"];
+	
+	//Deal with the simple record stuff first
 	for (NSDictionary *record in bib_record){
 		Entry *en = [[Entry alloc]init];
 		en.author = [record objectForKey:@"author"];
@@ -155,16 +157,38 @@ NSInteger selectedSearchType;
 		en.edition = [record objectForKey:@"edition"];
 		en.isbn = [record objectForKey:@"normalisedIsbn"];
 		
-		//Now delve into the holding data -- this gets a bit strange and I'm going to figure out a
-		//better way of doing things later
+		//Now delve into the holding data
 		NSDictionary *holdings = (NSDictionary *) [record objectForKey:@"holdings"];
 		id holding_id  = (id) [holdings objectForKey:@"holding"];
+		
+		//If there is a single holding deal with it
 		if([holding_id isKindOfClass:[NSDictionary class]]){
 			NSDictionary *holding = (NSDictionary *) holding_id;
-			en.location_name = [holding objectForKey:@"locationName"];
-			en.location_code = [holding objectForKey:@"locationCode"];
-		}else if ([holding_id isKindOfClass:[NSArray class]]){
-			NSLog(@"THIS IS AN ARRAY PANIC!");
+			NSArray *location_namesLocal = [[NSArray alloc]initWithObjects:[holding objectForKey:@"locationName"], nil];
+			NSArray *location_codesLocal = [[NSArray alloc]initWithObjects:[holding objectForKey:@"locationCode"], nil];
+			en.location_names = location_namesLocal;
+			en.location_codes = location_codesLocal;
+			[location_namesLocal release];
+			[location_codesLocal release];
+		}
+		//If there are multiple holdings deal with these
+		else if ([holding_id isKindOfClass:[NSArray class]]){
+			NSArray *holdings = (NSArray *)holding_id;
+			NSMutableArray *location_namesLocal = [[NSMutableArray alloc]init];
+			NSMutableArray *location_codesLocal = [[NSMutableArray alloc]init];
+			for(NSDictionary *individual_holding in holdings){
+				[location_namesLocal addObject:[individual_holding objectForKey:@"locationName"]];
+				[location_codesLocal addObject:[individual_holding objectForKey:@"locationCode"]];
+			}
+			NSArray *fixedLocationNames = [[NSArray alloc]initWithArray:location_namesLocal];
+			NSArray *fixedLocationCodes = [[NSArray alloc]initWithArray:location_codesLocal];
+			en.location_names = fixedLocationNames;
+			en.location_codes = fixedLocationCodes;
+			
+			[location_namesLocal release];
+			[location_codesLocal release];
+			[fixedLocationNames release];
+			[fixedLocationCodes release];
 		}
 		
 		//Tidy up before the next itteration

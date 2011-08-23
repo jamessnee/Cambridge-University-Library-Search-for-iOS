@@ -33,8 +33,8 @@
 	NSString *title;
 	NSString *edition;
 	NSString *isbn;
-	NSString *location_name;
-	NSString *location_code;
+	NSArray *location_names;
+	NSArray *location_codes;
 }
 
 //Properties
@@ -42,7 +42,7 @@
 @property (retain) NSString *title;
 @property (retain) NSString *edition;
 @property (retain) NSString *isbn;
-@property (retain) NSString *location_name;
-@property (retain) NSString *location_code;
+@property (retain) NSArray *location_names;
+@property (retain) NSArray *location_codes;
 
 @end
