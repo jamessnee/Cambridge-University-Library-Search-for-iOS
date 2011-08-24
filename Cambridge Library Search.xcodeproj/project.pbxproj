@@ -32,6 +32,10 @@
 		59504E6313FD464F00239970 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59504E6013FD464F00239970 /* SearchResultsViewController.m */; };
 		59504E6413FD464F00239970 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E6113FD464F00239970 /* SearchResultsViewController.xib */; };
 		59504E6513FD464F00239970 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59504E6113FD464F00239970 /* SearchResultsViewController.xib */; };
+		59A0DFD31405B05B0051F4D3 /* librarySearch-i.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD21405B05B0051F4D3 /* librarySearch-i.png */; };
+		59A0DFD51405B0700051F4D3 /* librarySearch-i4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */; };
+		59A0DFD71405B1930051F4D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD61405B1930051F4D3 /* Default.png */; };
+		59A0DFD91405B37F0051F4D3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD81405B37F0051F4D3 /* Default@2x.png */; };
 		59C9820B13FE9CAC00EA27E0 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C9820913FE9CAC00EA27E0 /* MapView.m */; };
 		59C9820C13FE9CAC00EA27E0 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C9820A13FE9CAC00EA27E0 /* MapView.xib */; };
 		59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C9820D13FE9E7300EA27E0 /* MapKit.framework */; };
@@ -113,6 +117,11 @@
 		59504E5F13FD464F00239970 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		59504E6013FD464F00239970 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
 		59504E6113FD464F00239970 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
+		59A0DFD11405ABA90051F4D3 /* Cambridge Library Search.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Cambridge Library Search.entitlements"; sourceTree = "<group>"; };
+		59A0DFD21405B05B0051F4D3 /* librarySearch-i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "librarySearch-i.png"; sourceTree = "<group>"; };
+		59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "librarySearch-i4.png"; sourceTree = "<group>"; };
+		59A0DFD61405B1930051F4D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		59A0DFD81405B37F0051F4D3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		59C9820813FE9CAC00EA27E0 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		59C9820913FE9CAC00EA27E0 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		59C9820A13FE9CAC00EA27E0 /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
@@ -151,6 +160,10 @@
 		5904159213FC19DB00621782 = {
 			isa = PBXGroup;
 			children = (
+				59A0DFD81405B37F0051F4D3 /* Default@2x.png */,
+				59A0DFD61405B1930051F4D3 /* Default.png */,
+				59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */,
+				59A0DFD21405B05B0051F4D3 /* librarySearch-i.png */,
 				590418FD13FC207800621782 /* SBJson.xcodeproj */,
 				590415A713FC19DC00621782 /* Cambridge Library Search */,
 				590415C913FC19DC00621782 /* Cambridge Library SearchTests */,
@@ -183,6 +196,7 @@
 		590415A713FC19DC00621782 /* Cambridge Library Search */ = {
 			isa = PBXGroup;
 			children = (
+				59A0DFD11405ABA90051F4D3 /* Cambridge Library Search.entitlements */,
 				590415B013FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.h */,
 				590415B113FC19DC00621782 /* Cambridge_Library_SearchAppDelegate.m */,
 				590415B613FC19DC00621782 /* Cambridge_Library_SearchViewController.h */,
@@ -363,6 +377,10 @@
 				59504E6413FD464F00239970 /* SearchResultsViewController.xib in Resources */,
 				5945D80013FE911300A6EEE7 /* EntryView_Group.xib in Resources */,
 				59C9820C13FE9CAC00EA27E0 /* MapView.xib in Resources */,
+				59A0DFD31405B05B0051F4D3 /* librarySearch-i.png in Resources */,
+				59A0DFD51405B0700051F4D3 /* librarySearch-i4.png in Resources */,
+				59A0DFD71405B1930051F4D3 /* Default.png in Resources */,
+				59A0DFD91405B37F0051F4D3 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,11 +536,13 @@
 		590415D613FC19DC00621782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: James Snee (UZF6782G72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "68ACFC3F-8844-48AA-A919-832021360623";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
 				WRAPPER_EXTENSION = app;
 			};
@@ -531,10 +551,14 @@
 		590415D713FC19DC00621782 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: James Snee (UZF6782G72)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "68ACFC3F-8844-48AA-A919-832021360623";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

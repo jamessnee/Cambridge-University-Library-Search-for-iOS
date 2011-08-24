@@ -64,6 +64,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	[self setTitle:@"Holding Locations"];
+	
     mapView.mapType = MKMapTypeStandard;
 	
 	CLLocationCoordinate2D coord = [[recordLocations objectAtIndex:0] coordinate];

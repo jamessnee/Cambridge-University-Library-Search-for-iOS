@@ -43,12 +43,15 @@
 	NSMutableArray *entries;
 	
 	IBOutlet UIActivityIndicatorView *activityIndicator;
+	
+	IBOutlet UIButton *searchButton;
     
 }
 
 //Properties
 @property (retain)NSMutableArray *entries;
 @property (retain)NSArray *searchTypes;
+@property (retain)IBOutlet UIButton *searchButton;
 
 //Methods
 -(IBAction) search: (id)sender;

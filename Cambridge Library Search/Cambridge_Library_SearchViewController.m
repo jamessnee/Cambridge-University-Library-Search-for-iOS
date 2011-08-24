@@ -32,7 +32,7 @@
 
 @implementation Cambridge_Library_SearchViewController
 
-@synthesize entries, searchTypes;
+@synthesize entries, searchTypes, searchButton;
 
 NSInteger selectedSearchType;
 
@@ -42,6 +42,9 @@ NSInteger selectedSearchType;
 	//Activity indicator
 	[activityIndicator setHidden:NO];
 	[activityIndicator startAnimating];
+	
+	//Disable the search button to stop this being called multiple times
+	[searchButton setEnabled:NO];
 	
 	//Hide the keyboard
 	[txt_searchTerm resignFirstResponder];
@@ -198,12 +201,18 @@ NSInteger selectedSearchType;
 	[responseString release];
 	[parser release];
 	
-	/* - DEBUG
-	for(Entry *en in entries){
-		NSLog(@"Title: %@",en.title);
-		NSLog(@"Location Name: %@",en.location_name);
+	if([entries count]==0){
+		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Results" message:@"There were no results found for your search" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+		
+		//Tidy up
+		[activityIndicator stopAnimating];
+		[searchButton setEnabled:YES];
+		
+		return;
 	}
-	 */
+	
 	//Show the results
 	[self switchView];
 }
@@ -263,6 +272,7 @@ NSInteger selectedSearchType;
 
 - (void)switchView{
 	[activityIndicator stopAnimating];
+	[searchButton setEnabled:YES];
 	SearchResultsViewController *srvc = [[SearchResultsViewController alloc]initWithNibName:@"SearchResultsViewController" bundle:nil entries:entries];
 	[self.navigationController pushViewController:srvc animated:YES];
 }

@@ -84,6 +84,10 @@ NSInteger currPosInArray = 0;
     [super viewDidLoad];
 	
 	//Reset currPosInArray
+	//currPosInArray = 0;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
 	currPosInArray = 0;
 }
 
