@@ -34,14 +34,15 @@
 	MKMapView *mapView;
 	NSString *locationToView;
 	NSDictionary *libraryLocations;
-	RecordLocation *recordLocation;
+	NSArray *recordLocations;
 }
 
 @property (retain) IBOutlet MKMapView *mapView;
 @property (retain) NSString *locationToView;
 @property (retain) NSDictionary *libraryLocations;
-@property (retain) RecordLocation *recordLocation;
+@property (retain) NSArray *recordLocations;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocation:(RecordLocation *)n_recordLocation;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocations:(NSArray *)n_recordLocations;
 
 @end

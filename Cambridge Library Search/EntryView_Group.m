@@ -65,6 +65,18 @@ NSInteger currPosInArray = 0;
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (IBAction)showAllLocations:(id)sender{	
+	NSMutableArray *recordLocations = [[NSMutableArray alloc]init];
+	for(NSString *lib in entry_full.location_names){
+		RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:lib andSubTitle:entry_full.title andLibraryName:lib];
+		[recordLocations addObject:recordLocation];
+	}
+	
+	MapView *map = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andRecordLocations:recordLocations];
+
+	[self.navigationController pushViewController:map animated:YES];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -159,7 +171,6 @@ NSInteger currPosInArray = 0;
 	[cell.textLabel setNumberOfLines:4];
 	[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
 	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
-	//[cell.textLabel setText:[currEntry objectAtIndex:index]];
 	
 	return cell;
 }

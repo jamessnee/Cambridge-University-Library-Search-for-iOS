@@ -43,4 +43,6 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entry:(Entry *)entry;
 
+- (IBAction)showAllLocations:(id)sender;
+
 @end

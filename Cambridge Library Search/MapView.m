@@ -32,21 +32,20 @@
 
 @implementation MapView
 
-@synthesize mapView, locationToView, libraryLocations, recordLocation;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize mapView, locationToView, libraryLocations, recordLocations;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocation:(RecordLocation *)n_recordLocation{
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		self.recordLocation = n_recordLocation;
+		recordLocations = [[NSArray alloc]initWithObjects:n_recordLocation, nil];
+    }
+    return self;
+}
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocations:(NSArray *)n_recordLocations{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+		self.recordLocations = n_recordLocations;
     }
     return self;
 }
@@ -67,28 +66,32 @@
     [super viewDidLoad];
     mapView.mapType = MKMapTypeStandard;
 	
+	CLLocationCoordinate2D coord = [[recordLocations objectAtIndex:0] coordinate];
 	
-	//OK OK This is horrid yes but I'm pressed for time
-	CLLocationCoordinate2D coord = recordLocation.coordinate;
+	//If there are multiple entries, zoom the map out far enough to see 
+	//all the pins -- this isn't the best way to do this, but it's quite simple
+	if([recordLocations count]>1){
+		MKCoordinateSpan span = {.latitudeDelta =  0.05, .longitudeDelta =  0.05};
+		MKCoordinateRegion region = {coord, span};
+		[mapView setRegion:region];
+	}
+	else{
+		MKCoordinateSpan span = {.latitudeDelta =  0.009, .longitudeDelta =  0.009};
+		MKCoordinateRegion region = {coord, span};
+		[mapView setRegion:region];
+	}
 	
-	MKCoordinateSpan span = {latitudeDelta: 0.009, longitudeDelta: 0.009};
-	MKCoordinateRegion region = {coord, span};
+	[mapView addAnnotations:recordLocations];
 	
-	[mapView setRegion:region];
-	
-	[mapView addAnnotation:recordLocation];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
