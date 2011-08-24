@@ -27,7 +27,7 @@
  */
 
 #import "Cambridge_Library_SearchViewController.h"
-#import <SBJson/SBJson.h>
+#import "SBJson.h"
 #import "SearchResultsViewController.h"
 
 @implementation Cambridge_Library_SearchViewController

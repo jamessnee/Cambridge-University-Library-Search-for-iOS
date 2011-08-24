@@ -23,7 +23,6 @@
 		590415CE13FC19DC00621782 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590415CC13FC19DC00621782 /* InfoPlist.strings */; };
 		590415D013FC19DC00621782 /* Cambridge_Library_SearchTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 590415CF13FC19DC00621782 /* Cambridge_Library_SearchTests.h */; };
 		590415D213FC19DC00621782 /* Cambridge_Library_SearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 590415D113FC19DC00621782 /* Cambridge_Library_SearchTests.m */; };
-		5904192013FC228300621782 /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5904190C13FC207800621782 /* libsbjson-ios.a */; };
 		5906C05613FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
 		5906C05713FC6E8C00F04A73 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906C05513FC6E8C00F04A73 /* Entry.m */; };
 		5945D7FF13FE911300A6EEE7 /* EntryView_Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 5945D7FD13FE911300A6EEE7 /* EntryView_Group.m */; };
@@ -36,6 +35,17 @@
 		59A0DFD51405B0700051F4D3 /* librarySearch-i4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */; };
 		59A0DFD71405B1930051F4D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD61405B1930051F4D3 /* Default.png */; };
 		59A0DFD91405B37F0051F4D3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD81405B37F0051F4D3 /* Default@2x.png */; };
+		59A0E0311405BC800051F4D3 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E01B1405BC800051F4D3 /* NSObject+SBJson.m */; };
+		59A0E0321405BC800051F4D3 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E01E1405BC800051F4D3 /* SBJsonParser.m */; };
+		59A0E0331405BC800051F4D3 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E0201405BC800051F4D3 /* SBJsonStreamParser.m */; };
+		59A0E0341405BC800051F4D3 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E0221405BC800051F4D3 /* SBJsonStreamParserAccumulator.m */; };
+		59A0E0351405BC800051F4D3 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E0241405BC800051F4D3 /* SBJsonStreamParserState.m */; };
+		59A0E0361405BC800051F4D3 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E0261405BC800051F4D3 /* SBJsonStreamWriter.m */; };
+		59A0E0371405BC800051F4D3 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E0281405BC800051F4D3 /* SBJsonStreamWriterAccumulator.m */; };
+		59A0E0381405BC800051F4D3 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E02A1405BC800051F4D3 /* SBJsonStreamWriterState.m */; };
+		59A0E0391405BC800051F4D3 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E02C1405BC800051F4D3 /* SBJsonTokeniser.m */; };
+		59A0E03A1405BC800051F4D3 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E02E1405BC800051F4D3 /* SBJsonUTF8Stream.m */; };
+		59A0E03B1405BC800051F4D3 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A0E0301405BC800051F4D3 /* SBJsonWriter.m */; };
 		59C9820B13FE9CAC00EA27E0 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C9820913FE9CAC00EA27E0 /* MapView.m */; };
 		59C9820C13FE9CAC00EA27E0 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C9820A13FE9CAC00EA27E0 /* MapView.xib */; };
 		59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C9820D13FE9E7300EA27E0 /* MapKit.framework */; };
@@ -49,41 +59,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5904159C13FC19DB00621782;
 			remoteInfo = "Cambridge Library Search";
-		};
-		5904190713FC207800621782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 590418FD13FC207800621782 /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC12323D1391D5CC00131607;
-			remoteInfo = SBJson;
-		};
-		5904190913FC207800621782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 590418FD13FC207800621782 /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC1232521391D5CC00131607;
-			remoteInfo = SBJsonTests;
-		};
-		5904190B13FC207800621782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 590418FD13FC207800621782 /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCC2626913920FC7003D9994;
-			remoteInfo = "sbjson-ios";
-		};
-		5904190D13FC207800621782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 590418FD13FC207800621782 /* SBJson.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCC2627313920FC7003D9994;
-			remoteInfo = "sbjson-iosTests";
-		};
-		5904191E13FC227C00621782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 590418FD13FC207800621782 /* SBJson.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCC2626813920FC7003D9994;
-			remoteInfo = "sbjson-ios";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -108,7 +83,6 @@
 		590415CD13FC19DC00621782 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		590415CF13FC19DC00621782 /* Cambridge_Library_SearchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cambridge_Library_SearchTests.h; sourceTree = "<group>"; };
 		590415D113FC19DC00621782 /* Cambridge_Library_SearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cambridge_Library_SearchTests.m; sourceTree = "<group>"; };
-		590418FD13FC207800621782 /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "../Frameworks_And_Libraries/json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		5906C05413FC6E8C00F04A73 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		5906C05513FC6E8C00F04A73 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		5945D7FC13FE911300A6EEE7 /* EntryView_Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryView_Group.h; sourceTree = "<group>"; };
@@ -122,6 +96,29 @@
 		59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "librarySearch-i4.png"; sourceTree = "<group>"; };
 		59A0DFD61405B1930051F4D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		59A0DFD81405B37F0051F4D3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		59A0E01A1405BC800051F4D3 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		59A0E01B1405BC800051F4D3 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		59A0E01C1405BC800051F4D3 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		59A0E01D1405BC800051F4D3 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		59A0E01E1405BC800051F4D3 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		59A0E01F1405BC800051F4D3 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		59A0E0201405BC800051F4D3 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		59A0E0211405BC800051F4D3 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		59A0E0221405BC800051F4D3 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		59A0E0231405BC800051F4D3 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		59A0E0241405BC800051F4D3 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		59A0E0251405BC800051F4D3 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		59A0E0261405BC800051F4D3 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		59A0E0271405BC800051F4D3 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		59A0E0281405BC800051F4D3 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		59A0E0291405BC800051F4D3 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		59A0E02A1405BC800051F4D3 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		59A0E02B1405BC800051F4D3 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		59A0E02C1405BC800051F4D3 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		59A0E02D1405BC800051F4D3 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		59A0E02E1405BC800051F4D3 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		59A0E02F1405BC800051F4D3 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		59A0E0301405BC800051F4D3 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		59C9820813FE9CAC00EA27E0 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		59C9820913FE9CAC00EA27E0 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		59C9820A13FE9CAC00EA27E0 /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
@@ -136,7 +133,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */,
-				5904192013FC228300621782 /* libsbjson-ios.a in Frameworks */,
 				590415A213FC19DC00621782 /* UIKit.framework in Frameworks */,
 				590415A413FC19DC00621782 /* Foundation.framework in Frameworks */,
 				590415A613FC19DC00621782 /* CoreGraphics.framework in Frameworks */,
@@ -160,11 +156,11 @@
 		5904159213FC19DB00621782 = {
 			isa = PBXGroup;
 			children = (
+				59A0DFDA1405BB9C0051F4D3 /* SBJson */,
 				59A0DFD81405B37F0051F4D3 /* Default@2x.png */,
 				59A0DFD61405B1930051F4D3 /* Default.png */,
 				59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */,
 				59A0DFD21405B05B0051F4D3 /* librarySearch-i.png */,
-				590418FD13FC207800621782 /* SBJson.xcodeproj */,
 				590415A713FC19DC00621782 /* Cambridge Library Search */,
 				590415C913FC19DC00621782 /* Cambridge Library SearchTests */,
 				590415A013FC19DC00621782 /* Frameworks */,
@@ -251,15 +247,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		590418FE13FC207800621782 /* Products */ = {
+		59A0DFDA1405BB9C0051F4D3 /* SBJson */ = {
 			isa = PBXGroup;
 			children = (
-				5904190813FC207800621782 /* SBJson.framework */,
-				5904190A13FC207800621782 /* SBJsonTests.octest */,
-				5904190C13FC207800621782 /* libsbjson-ios.a */,
-				5904190E13FC207800621782 /* sbjson-iosTests.octest */,
+				59A0E01A1405BC800051F4D3 /* NSObject+SBJson.h */,
+				59A0E01B1405BC800051F4D3 /* NSObject+SBJson.m */,
+				59A0E01C1405BC800051F4D3 /* SBJson.h */,
+				59A0E01D1405BC800051F4D3 /* SBJsonParser.h */,
+				59A0E01E1405BC800051F4D3 /* SBJsonParser.m */,
+				59A0E01F1405BC800051F4D3 /* SBJsonStreamParser.h */,
+				59A0E0201405BC800051F4D3 /* SBJsonStreamParser.m */,
+				59A0E0211405BC800051F4D3 /* SBJsonStreamParserAccumulator.h */,
+				59A0E0221405BC800051F4D3 /* SBJsonStreamParserAccumulator.m */,
+				59A0E0231405BC800051F4D3 /* SBJsonStreamParserState.h */,
+				59A0E0241405BC800051F4D3 /* SBJsonStreamParserState.m */,
+				59A0E0251405BC800051F4D3 /* SBJsonStreamWriter.h */,
+				59A0E0261405BC800051F4D3 /* SBJsonStreamWriter.m */,
+				59A0E0271405BC800051F4D3 /* SBJsonStreamWriterAccumulator.h */,
+				59A0E0281405BC800051F4D3 /* SBJsonStreamWriterAccumulator.m */,
+				59A0E0291405BC800051F4D3 /* SBJsonStreamWriterState.h */,
+				59A0E02A1405BC800051F4D3 /* SBJsonStreamWriterState.m */,
+				59A0E02B1405BC800051F4D3 /* SBJsonTokeniser.h */,
+				59A0E02C1405BC800051F4D3 /* SBJsonTokeniser.m */,
+				59A0E02D1405BC800051F4D3 /* SBJsonUTF8Stream.h */,
+				59A0E02E1405BC800051F4D3 /* SBJsonUTF8Stream.m */,
+				59A0E02F1405BC800051F4D3 /* SBJsonWriter.h */,
+				59A0E0301405BC800051F4D3 /* SBJsonWriter.m */,
 			);
-			name = Products;
+			name = SBJson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +291,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				5904191F13FC227C00621782 /* PBXTargetDependency */,
 			);
 			name = "Cambridge Library Search";
 			productName = "Cambridge Library Search";
@@ -321,12 +335,6 @@
 			mainGroup = 5904159213FC19DB00621782;
 			productRefGroup = 5904159E13FC19DB00621782 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 590418FE13FC207800621782 /* Products */;
-					ProjectRef = 590418FD13FC207800621782 /* SBJson.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				5904159C13FC19DB00621782 /* Cambridge Library Search */,
@@ -334,37 +342,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		5904190813FC207800621782 /* SBJson.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SBJson.framework;
-			remoteRef = 5904190713FC207800621782 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5904190A13FC207800621782 /* SBJsonTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SBJsonTests.octest;
-			remoteRef = 5904190913FC207800621782 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5904190C13FC207800621782 /* libsbjson-ios.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libsbjson-ios.a";
-			remoteRef = 5904190B13FC207800621782 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5904190E13FC207800621782 /* sbjson-iosTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "sbjson-iosTests.octest";
-			remoteRef = 5904190D13FC207800621782 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5904159B13FC19DB00621782 /* Resources */ = {
@@ -425,6 +402,17 @@
 				5945D7FF13FE911300A6EEE7 /* EntryView_Group.m in Sources */,
 				59C9820B13FE9CAC00EA27E0 /* MapView.m in Sources */,
 				59F657061402A5CF0090C6F2 /* RecordLocation.m in Sources */,
+				59A0E0311405BC800051F4D3 /* NSObject+SBJson.m in Sources */,
+				59A0E0321405BC800051F4D3 /* SBJsonParser.m in Sources */,
+				59A0E0331405BC800051F4D3 /* SBJsonStreamParser.m in Sources */,
+				59A0E0341405BC800051F4D3 /* SBJsonStreamParserAccumulator.m in Sources */,
+				59A0E0351405BC800051F4D3 /* SBJsonStreamParserState.m in Sources */,
+				59A0E0361405BC800051F4D3 /* SBJsonStreamWriter.m in Sources */,
+				59A0E0371405BC800051F4D3 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				59A0E0381405BC800051F4D3 /* SBJsonStreamWriterState.m in Sources */,
+				59A0E0391405BC800051F4D3 /* SBJsonTokeniser.m in Sources */,
+				59A0E03A1405BC800051F4D3 /* SBJsonUTF8Stream.m in Sources */,
+				59A0E03B1405BC800051F4D3 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,11 +433,6 @@
 			isa = PBXTargetDependency;
 			target = 5904159C13FC19DB00621782 /* Cambridge Library Search */;
 			targetProxy = 590415C713FC19DC00621782 /* PBXContainerItemProxy */;
-		};
-		5904191F13FC227C00621782 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "sbjson-ios";
-			targetProxy = 5904191E13FC227C00621782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -494,6 +477,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: James Snee (UZF6782G72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -509,7 +493,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18605399-CE9C-4022-8441-47172560A6A4";
+				PROVISIONING_PROFILE = "68ACFC3F-8844-48AA-A919-832021360623";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -519,7 +504,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: James Snee";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Snee";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -528,6 +514,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -536,14 +524,14 @@
 		590415D613FC19DC00621782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: James Snee (UZF6782G72)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: James Snee";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Snee";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "68ACFC3F-8844-48AA-A919-832021360623";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
+				PROVISIONING_PROFILE = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -551,14 +539,14 @@
 		590415D713FC19DC00621782 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: James Snee (UZF6782G72)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: James Snee";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Snee";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "68ACFC3F-8844-48AA-A919-832021360623";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
+				PROVISIONING_PROFILE = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
