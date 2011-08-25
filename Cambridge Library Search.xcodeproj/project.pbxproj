@@ -529,6 +529,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
@@ -544,6 +545,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
