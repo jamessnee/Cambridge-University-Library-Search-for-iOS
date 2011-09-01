@@ -114,6 +114,7 @@ NSInteger selectedSearchType;
 	//[con release];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -133,9 +134,13 @@ NSInteger selectedSearchType;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-	//label.text = [NSString stringWithFormat:@"Connection failed: %@", [error description]];
-    NSLog(@"Fail");
-    NSLog(@"%@",[error description]);
+	UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Connection" message:@"Couldn't connect to the Library. Do you have an Internet connection?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	
+	//Tidy up
+	[activityIndicator stopAnimating];
+	[searchButton setEnabled:YES];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection{
