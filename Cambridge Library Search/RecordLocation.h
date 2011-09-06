@@ -33,9 +33,9 @@
 	NSString *title;
 	NSString *subtitle;
 	NSString *libraryName;
-	CLLocationCoordinate2D *libraryLocation;
+	CLLocationCoordinate2D coordinate;
 }
-@property CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property CLLocationCoordinate2D *libraryLocation;
 @property (retain) NSString *libraryName;
 @property (copy) NSString *title;

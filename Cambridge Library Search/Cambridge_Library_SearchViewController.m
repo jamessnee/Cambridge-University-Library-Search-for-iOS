@@ -97,7 +97,7 @@ NSInteger selectedSearchType;
     [url appendString:@"http://www.lib.cam.ac.uk/api/voyager/newtonSearch.cgi?"];
     [url appendString:searchArg];
     [url appendString:database];
-	[url appendFormat:searchCode];
+	[url appendString:searchCode];
     [url appendString:format];
 	
     NSLog(@"Searching for: %@",url);
