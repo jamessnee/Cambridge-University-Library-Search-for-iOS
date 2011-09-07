@@ -38,8 +38,8 @@
 		self.subtitle = n_subtitle;
 		self.libraryName = libName;
 		
-		NSArray *libraries = [[NSArray alloc] initWithObjects:@"UL",@"Medical Library",@"Squire Law Library",@"Central Science Library",@"Betty & Gordon Moore", nil];
-		NSArray *locations = [[NSArray alloc] initWithObjects:@"52.204917,0.107565",@"52.186404,0.137709",@"52.2029,0.110727",@"52.203695,0.119054",@"52.209552,0.100047", nil];
+		NSArray *libraries = [self getLibraryNames];
+		NSArray *locations = [self getLibraryLocations];
 		
 		//Do some string stuff to find the coordinates of the library
 		for(int i=0;i<[libraries count];i++){
@@ -69,5 +69,66 @@
 -(NSString *)subtitle{
 	return subtitle;
 }
+
+
+/* 
+ * The library names and locations, probably not the best way to do this.
+ * It should be done with constants but I need to read up more on the c preprocessor
+ */
+- (NSArray *)getLibraryNames{
+	return [[NSArray alloc] initWithObjects:
+			@"UL",
+			@"Medical Library",
+			@"Squire Law Library",
+			@"Central Science Library",
+			@"Betty & Gordon Moore",
+			/* COLLEGES */
+			@"Christs College",
+			@"Churchill College",
+			@"Clare College",
+			@"Clare Hall",
+			@"Corpus Christi College",
+			@"Darwin College",
+			@"Downing College",
+			@"Emmanuel College",
+			@"Fitzwilliam College",
+			@"Girton College",
+			@"Gonville & Caius College",
+			@"Homerton College",
+			@"Hughes Hall",
+			@"Jesus College",
+			@"King's College",
+			@"Lucy Cavendish College",
+			@"Magdalene College",
+			@"Murray Edwards College",
+			@"Newnham College",
+			@"Pembroke College",
+			@"Peterhouse",
+			@"Queen's College",
+			@"Robinson College",
+			@"St Catharine's College",
+			@"St Edmund's College",
+			@"St Johns College",
+			@"Selwyn College",
+			@"Sidney Sussex College",
+			@"Trinity College",
+			@"Trinity Hall",
+			@"Wolfson College",
+			nil];
+}
+
+-(NSArray *)getLibraryLocations{
+	return [[NSArray alloc] initWithObjects:
+			@"52.204917,0.107565", /* The UL */
+			@"52.186404,0.137709", /* Medical Library */
+			@"52.2029,0.110727", /* Squire Law Library */
+			@"52.203695,0.119054", /* Central Science Library */
+			@"52.209552,0.100047", /* Betty & Gordon Moore */
+			/* COLLEGES */
+			
+			nil];
+}
+
+
 
 @end
