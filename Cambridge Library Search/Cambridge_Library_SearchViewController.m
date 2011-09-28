@@ -47,8 +47,12 @@
 	
 	//Hide the keyboard
 	[txt_searchTerm resignFirstResponder];
-    
-    //Build up the request 
+	
+	[self searchNewton];
+}
+
+-(void)searchNewton{
+	//Build up the request 
     NSString *searchTerm = [txt_searchTerm text];
     NSMutableString *url = [[NSMutableString alloc] init];
     NSString *searchArg = [NSString stringWithFormat:@"searchArg=%@&",searchTerm];
@@ -121,7 +125,6 @@
 	//[con release];
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -130,7 +133,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - Data Connection and JSON parsing
+#pragma mark - Data Connection
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	[returnedData setLength:0];
 	NSLog(@"Got a response");
@@ -154,7 +157,26 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc]initWithData:returnedData encoding:NSUTF8StringEncoding];
+	[self parseNewtonData:responseString];
+
+	if([entries count]==0){
+		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Results" message:@"There were no results found for your search" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+		
+		//Tidy up
+		[activityIndicator stopAnimating];
+		[searchButton setEnabled:YES];
+		
+		return;
+	}
 	
+	//Show the results
+	[self switchView];
+}
+
+#pragma mark - JSON Parsing
+-(void)parseNewtonData:(NSString *)responseString{
 	//init entries array
 	entries = [[NSMutableArray alloc] init];
 	
@@ -214,21 +236,6 @@
 	}
 	[responseString release];
 	[parser release];
-	
-	if([entries count]==0){
-		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Results" message:@"There were no results found for your search" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-		
-		//Tidy up
-		[activityIndicator stopAnimating];
-		[searchButton setEnabled:YES];
-		
-		return;
-	}
-	
-	//Show the results
-	[self switchView];
 }
 
 #pragma mark - View lifecycle
@@ -275,6 +282,5 @@
 	SearchOptionsView *searchOptionsView = [[SearchOptionsView alloc]initWithNibName:@"SearchOptionsView" bundle:nil searchOptions:searchOptions];
 	[self.navigationController pushViewController:searchOptionsView animated:YES];
 }
-
 
 @end

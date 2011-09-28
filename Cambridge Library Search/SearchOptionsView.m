@@ -111,11 +111,14 @@
  */
 -(IBAction)dbSwitchChanged:(id)sender{
 	UISwitch *sw = sender;
+	
+	NSLog(@"SWITCH: %d",sw.tag);
+	
 	if(sw.tag == 0){
 		if (sw.isOn)
 			[searchOptions addDb:@"cambridgedb"];
 		else
-			[searchOptions removeDb:@"cambridge"];
+			[searchOptions removeDb:@"cambridgedb"];
 	}else if(sw.tag == 1){
 		if (sw.isOn)
 			[searchOptions addDb:@"depfacaedb"];

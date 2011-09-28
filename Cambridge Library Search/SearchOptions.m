@@ -20,7 +20,8 @@
 		searchType = @"General";
 		
 		//Set the default db to be db_cambridge
-		dbSelected = [[NSMutableArray alloc]initWithObjects:@"cambrdgedb", nil];
+		dbSelected = [[NSMutableArray alloc]init];
+		[self addDb:@"cambridgedb"];
 		pickerRow = 0;
 	}
     return self;
@@ -31,7 +32,9 @@
 }
 
 -(void)removeDb:(NSString *)dbName{
+	NSLog(@"Count before: %d",[dbSelected count]);
 	[dbSelected removeObject:dbName];
+	NSLog(@"Count after: %d",[dbSelected count]);
 }
 
 -(NSInteger)getPickerRow{

@@ -34,7 +34,7 @@
 @class Entry;
 @class SearchOptions;
 
-@interface Cambridge_Library_SearchViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource> {
+@interface Cambridge_Library_SearchViewController : UIViewController{
 
     IBOutlet UITextField *txt_searchTerm;
 	//IBOutlet UIPickerView *searchTypePicker;
@@ -59,7 +59,11 @@
 
 //Methods
 -(IBAction)search: (id)sender;
+-(void)searchNewton;
+-(void)searchAquabrowserThin;
+-(void)searchAquabrowserAllRecords;
 -(void)switchView;
+-(void)parseNewtonData:(NSString *)responseString;
 -(IBAction)hideKeyboard: (id)sender;
 -(IBAction)showSearchOptions:(id)sender;
 
