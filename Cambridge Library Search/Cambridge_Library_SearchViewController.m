@@ -52,7 +52,15 @@
     NSString *searchTerm = [txt_searchTerm text];
     NSMutableString *url = [[NSMutableString alloc] init];
     NSString *searchArg = [NSString stringWithFormat:@"searchArg=%@&",searchTerm];
-    NSString *database = @"databases=cambrdgedb&";
+	NSMutableString *database = [[NSMutableString alloc]init];
+	[database appendString:@"databases="];
+	for(int i=0;i<[[searchOptions dbSelected] count]; i++){
+		[database appendString:[[searchOptions dbSelected]objectAtIndex:i]];
+		if((i+1)!=[[searchOptions dbSelected]count])
+			[database appendString:@","];
+	}
+	[database appendString:@"&"];
+	
     NSString *format = @"format=json";
 	
 	//Get the search type code
@@ -166,6 +174,7 @@
 		
 		//Now delve into the holding data
 		NSDictionary *holdings = (NSDictionary *) [record objectForKey:@"holdings"];
+		NSLog([holdings description]);
 		id holding_id  = (id) [holdings objectForKey:@"holding"];
 		
 		//If there is a single holding deal with it
@@ -201,6 +210,7 @@
 		//Tidy up before the next itteration
 		[entries addObject:en];
 		[en release];
+		NSLog(@"Finished record");
 	}
 	[responseString release];
 	[parser release];

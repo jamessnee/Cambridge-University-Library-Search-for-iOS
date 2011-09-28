@@ -68,6 +68,24 @@
 	UISwitch *topSwitch = [dbSwitches objectAtIndex:0];
 	[topSwitch setOn:YES];
 	
+	//Set the switches
+	for (int i=0; i<[[searchOptions dbSelected] count]; i++) {
+		NSString *currDbName = [[searchOptions dbSelected]objectAtIndex:i];
+		if([currDbName isEqualToString:@"cambridgedb"]){
+		   [db_cambridge setOn:YES];
+		}else if([currDbName isEqualToString:@"depfacaedb"]){
+		   [db_depfacaedb setOn:YES];
+		}else if([currDbName isEqualToString:@"depfacfmdb"]){
+		   [db_depfacfmdb setOn:YES];
+		}else if([currDbName isEqualToString:@"depfacozdb"]){
+		   [db_depfacozdb setOn:YES];
+		}else if([currDbName isEqualToString:@"otherdb"]){
+		   [db_otherdb setOn:YES];
+		}else if([currDbName isEqualToString:@"manuscrpdb"]){
+		   [db_manuscrpdb setOn:YES];
+		}
+	}
+	
 	//Select the correct row in the picker
 	[searchTypePicker selectRow:[searchOptions getPickerRow] inComponent:0 animated:NO];
 }
@@ -95,34 +113,34 @@
 	UISwitch *sw = sender;
 	if(sw.tag == 0){
 		if (sw.isOn)
-			[searchOptions addDb:@"db_cambridge"];
+			[searchOptions addDb:@"cambridgedb"];
 		else
-			[searchOptions removeDb:@"db_cambridge"];
+			[searchOptions removeDb:@"cambridge"];
 	}else if(sw.tag == 1){
 		if (sw.isOn)
-			[searchOptions addDb:@"db_depfacaedb"];
+			[searchOptions addDb:@"depfacaedb"];
 		else
-			[searchOptions removeDb:@"db_depfacaedb"];
+			[searchOptions removeDb:@"depfacaedb"];
 	}else if(sw.tag == 2){
 		if (sw.isOn)
-			[searchOptions addDb:@"db_depfacfmdb"];
+			[searchOptions addDb:@"depfacfmdb"];
 		else
-			[searchOptions removeDb:@"db_depfacfmdb"];
+			[searchOptions removeDb:@"depfacfmdb"];
 	}else if(sw.tag == 3){
 		if (sw.isOn)
-			[searchOptions addDb:@"db_depfacozdb"];
+			[searchOptions addDb:@"depfacozdb"];
 		else
-			[searchOptions removeDb:@"db_depfacozdb"];
+			[searchOptions removeDb:@"depfacozdb"];
 	}else if(sw.tag == 4){
 		if (sw.isOn)
-			[searchOptions addDb:@"db_otherdb"];
+			[searchOptions addDb:@"otherdb"];
 		else
-			[searchOptions removeDb:@"db_otherdb"];
+			[searchOptions removeDb:@"otherdb"];
 	}else if(sw.tag == 5){
 		if (sw.isOn)
-			[searchOptions addDb:@"db_manuscrpdb"];
+			[searchOptions addDb:@"manuscrpdb"];
 		else
-			[searchOptions removeDb:@"db_manuscrpdb"];
+			[searchOptions removeDb:@"manuscrpdb"];
 	}
 }
 

@@ -20,7 +20,7 @@
 		searchType = @"General";
 		
 		//Set the default db to be db_cambridge
-		dbSelected = [[NSMutableArray alloc]initWithObjects:@"db_cambridge", nil];
+		dbSelected = [[NSMutableArray alloc]initWithObjects:@"cambrdgedb", nil];
 		pickerRow = 0;
 	}
     return self;
