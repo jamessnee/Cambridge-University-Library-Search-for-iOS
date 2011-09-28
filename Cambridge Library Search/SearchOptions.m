@@ -9,7 +9,7 @@
 #import "SearchOptions.h"
 
 @implementation SearchOptions
-@synthesize searchType, dbSelected;
+@synthesize searchType, dbSelected,searchProvider;
 
 
 - (id)init
@@ -21,8 +21,12 @@
 		
 		//Set the default db to be db_cambridge
 		dbSelected = [[NSMutableArray alloc]init];
-		[self addDb:@"cambridgedb"];
+		[self addDb:@"cambrdgedb"];
 		pickerRow = 0;
+		
+		//Set the default search provider
+		searchProvider = @"Newton";
+		//searchProvider = @"Aquabrowser";
 	}
     return self;
 }

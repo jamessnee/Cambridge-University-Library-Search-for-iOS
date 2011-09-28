@@ -60,10 +60,11 @@
 //Methods
 -(IBAction)search: (id)sender;
 -(void)searchNewton;
--(void)searchAquabrowserThin;
+-(void)searchAquabrowserThinPage:(int)pageNum;
 -(void)searchAquabrowserAllRecords;
 -(void)switchView;
 -(void)parseNewtonData:(NSString *)responseString;
+-(void)parseAquabrowserData:(NSString *)responseString;
 -(IBAction)hideKeyboard: (id)sender;
 -(IBAction)showSearchOptions:(id)sender;
 

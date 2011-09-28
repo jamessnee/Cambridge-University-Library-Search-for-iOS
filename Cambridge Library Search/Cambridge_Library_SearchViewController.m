@@ -48,7 +48,10 @@
 	//Hide the keyboard
 	[txt_searchTerm resignFirstResponder];
 	
-	[self searchNewton];
+	if([searchOptions.searchProvider isEqualToString:@"Newton"])
+		[self searchNewton];
+	else if([searchOptions.searchProvider isEqualToString:@"Aquabrowser"])
+		[self searchAquabrowserThinPage:1];
 }
 
 -(void)searchNewton{
@@ -125,6 +128,34 @@
 	//[con release];
 }
 
+-(void)searchAquabrowserThinPage:(int)pageNum{
+	//Build up the request 
+    NSString *searchTerm = [txt_searchTerm text];
+    NSMutableString *url = [[NSMutableString alloc] init];
+    NSString *searchArg = [NSString stringWithFormat:@"searchArg=%@&",searchTerm];
+	NSString *database = @"branch=UL & Dependents&";
+	
+	NSString *page = [NSString stringWithFormat:@"resultsPage=%d&",pageNum];
+    NSString *format = @"format=json";
+	
+    [url appendString:@"http://www.lib.cam.ac.uk/api/aquabrowser/abSearchThin.cgi?"];
+    [url appendString:searchArg];
+    [url appendString:database];
+	[url appendString:page];
+    [url appendString:format];
+	
+    NSLog(@"Searching for: %@",url);
+	NSString* escapedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:escapedUrl]];
+	[[NSURLConnection alloc] initWithRequest:request delegate:self];
+	
+	//Setup the parser after the request (fake threading I guess)
+	parser = [[SBJsonParser alloc]init];
+	
+	[url release];
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -157,7 +188,11 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc]initWithData:returnedData encoding:NSUTF8StringEncoding];
-	[self parseNewtonData:responseString];
+	if([searchOptions.searchProvider isEqualToString:@"Newton"]){
+		[self parseNewtonData:responseString];
+	}else if([searchOptions.searchProvider isEqualToString:@"Aquabrowser"]){
+		[self parseAquabrowserData:responseString];
+	}
 
 	if([entries count]==0){
 		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Results" message:@"There were no results found for your search" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -171,8 +206,10 @@
 		return;
 	}
 	
-	//Show the results
-	[self switchView];
+	if([searchOptions.searchProvider isEqualToString:@"Newton"]){
+		//Show the results
+		[self switchView];
+	}
 }
 
 #pragma mark - JSON Parsing
@@ -188,7 +225,7 @@
 	
 	//Deal with the simple record stuff first
 	for (NSDictionary *record in bib_record){
-		Entry *en = [[Entry alloc]init];
+		Entry *en = [[Entry alloc]initWithEntryType:@"Newton"];
 		en.author = [record objectForKey:@"author"];
 		en.title = [record objectForKey:@"title"];
 		en.edition = [record objectForKey:@"edition"];
@@ -196,7 +233,7 @@
 		
 		//Now delve into the holding data
 		NSDictionary *holdings = (NSDictionary *) [record objectForKey:@"holdings"];
-		NSLog([holdings description]);
+		//NSLog([holdings description]);
 		id holding_id  = (id) [holdings objectForKey:@"holding"];
 		
 		//If there is a single holding deal with it
@@ -232,10 +269,45 @@
 		//Tidy up before the next itteration
 		[entries addObject:en];
 		[en release];
-		NSLog(@"Finished record");
 	}
 	[responseString release];
 	[parser release];
+}
+
+-(void)parseAquabrowserData:(NSString *)responseString{
+	//init entries array if this is the first time we've looked here
+	if (entries == nil) {
+		NSLog(@"Creating new entries array");
+		entries = [[NSMutableArray alloc] init];
+	}
+
+	//Parse the json
+	NSError *jsonError = nil;
+	NSDictionary *data = (NSDictionary *) [parser objectWithString:responseString error:&jsonError];
+	NSDictionary *results = (NSDictionary *) [data objectForKey:@"search_results"];
+	NSDictionary *bib_record = (NSDictionary *) [results objectForKey:@"bib_record"];
+	
+	//Deal with the simple record stuff first
+	for (NSDictionary *record in bib_record){
+		Entry *currEntry = [[Entry alloc]initWithEntryType:@"Aquabrowser"];
+		
+		currEntry.title = [record objectForKey:@"title"];
+		currEntry.extID = [record objectForKey:@"extID"];
+		currEntry.coverImageURL = [record objectForKey:@"\"cover_image_url\""];
+		
+		[entries addObject:currEntry];
+		[currEntry release];
+	}
+	[responseString release];
+	[parser release];
+
+	NSDictionary *nextPage = [results objectForKey:@"next_page"];
+	NSString *pageNumStr = (NSString *)[nextPage objectForKey:@"page"];
+	NSInteger pageNum = [pageNumStr intValue];
+	if(pageNum <= 25)
+		[self searchAquabrowserThinPage:pageNum];
+	else
+		[self switchView];
 }
 
 #pragma mark - View lifecycle

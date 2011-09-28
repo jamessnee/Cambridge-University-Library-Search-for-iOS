@@ -12,10 +12,14 @@
 	NSString *searchType;
 	NSMutableArray *dbSelected;
 	NSInteger pickerRow; // for convenience
+	
+	//Either Newton / Aquabrowser
+	NSString *searchProvider;
 }
 
 @property (retain) NSString *searchType;
 @property (retain) NSMutableArray *dbSelected;
+@property (retain) NSString *searchProvider;
 
 -(void)addDb:(NSString *)dbName;
 -(void)removeDb:(NSString *)dbName;
