@@ -45,7 +45,6 @@
 	IBOutlet UIActivityIndicatorView *activityIndicator;
 	
 	IBOutlet UIButton *searchButton;
-
 }
 
 //Properties
@@ -57,5 +56,6 @@
 -(IBAction)search: (id)sender;
 -(void)switchView;
 -(IBAction)hideKeyboard: (id)sender;
+-(IBAction)showSearchOptions:(id)sender;
 
 @end

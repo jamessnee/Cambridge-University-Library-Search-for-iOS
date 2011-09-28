@@ -29,6 +29,7 @@
 #import "Cambridge_Library_SearchViewController.h"
 #import "SBJson.h"
 #import "SearchResultsViewController.h"
+#import "SearchOptionsView.h"
 
 @implementation Cambridge_Library_SearchViewController
 
@@ -284,6 +285,11 @@ NSInteger selectedSearchType;
 
 -(IBAction)hideKeyboard:(id)sender{
 	[sender resignFirstResponder];
+}
+
+-(IBAction)showSearchOptions:(id)sender{
+	SearchOptionsView *searchOptionsView = [[SearchOptionsView alloc]initWithNibName:@"SearchOptionsView" bundle:nil];
+	[self.navigationController pushViewController:searchOptionsView animated:YES];
 }
 
 
