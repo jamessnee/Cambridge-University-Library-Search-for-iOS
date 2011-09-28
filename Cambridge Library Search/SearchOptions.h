@@ -11,11 +11,16 @@
 @interface SearchOptions : NSObject{
 	NSString *searchType;
 	NSMutableArray *dbSelected;
+	NSInteger pickerRow; // for convenience
 }
 
 @property (retain) NSString *searchType;
 @property (retain) NSMutableArray *dbSelected;
 
 -(void)addDb:(NSString *)dbName;
+-(void)removeDb:(NSString *)dbName;
+
+-(NSInteger)getPickerRow;
+-(void)setPickerRow:(NSInteger)num;
 
 @end

@@ -82,6 +82,7 @@
 						<string key="NSFrame">{{61, 72}, {198, 31}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="825395452"/>
 						<string key="NSReuseIdentifierKey">_NS:294</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -141,22 +142,23 @@
 					<object class="IBUIButton" id="505962448">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{79, 167}, {163, 37}}</string>
+						<string key="NSFrame">{{79, 156}, {163, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="241837946"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<object class="NSFont" key="IBUIFont" id="807699662">
+						<object class="NSFont" key="IBUIFont" id="729544879">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Find my stuff</string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor" id="73095251">
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="758009518">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
@@ -164,7 +166,7 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleShadowColor" id="1017272649">
+						<object class="NSColor" key="IBUINormalTitleShadowColor" id="15293660">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
@@ -175,31 +177,33 @@
 						<string key="NSFrame">{{250, 167}, {37, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:989</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIStyle">0</int>
 					</object>
-					<object class="IBUIButton" id="1045839692">
+					<object class="IBUIButton" id="825395452">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{92, 116}, {136, 37}}</string>
+						<string key="NSFrame">{{92, 111}, {136, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="505962448"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="807699662"/>
+						<reference key="IBUIFont" ref="729544879"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Search Options</string>
-						<reference key="IBUIHighlightedTitleColor" ref="73095251"/>
+						<reference key="IBUIHighlightedTitleColor" ref="758009518"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="1017272649"/>
+						<reference key="IBUINormalTitleShadowColor" ref="15293660"/>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 64}, {320, 416}}</string>
@@ -274,7 +278,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showSearchOptions:</string>
-						<reference key="source" ref="1045839692"/>
+						<reference key="source" ref="825395452"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -309,9 +313,9 @@
 							<reference ref="521956430"/>
 							<reference ref="938421110"/>
 							<reference ref="780870840"/>
-							<reference ref="505962448"/>
 							<reference ref="241837946"/>
-							<reference ref="1045839692"/>
+							<reference ref="825395452"/>
+							<reference ref="505962448"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -344,7 +348,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">36</int>
-						<reference key="object" ref="1045839692"/>
+						<reference key="object" ref="825395452"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</object>
@@ -445,14 +449,12 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>activityIndicator</string>
 							<string>searchButton</string>
-							<string>searchTypePicker</string>
 							<string>txt_searchTerm</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIActivityIndicatorView</string>
 							<string>UIButton</string>
-							<string>UIPickerView</string>
 							<string>UITextField</string>
 						</object>
 					</object>
@@ -462,7 +464,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>activityIndicator</string>
 							<string>searchButton</string>
-							<string>searchTypePicker</string>
 							<string>txt_searchTerm</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -474,10 +475,6 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">searchButton</string>
 								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">searchTypePicker</string>
-								<string key="candidateClassName">UIPickerView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">txt_searchTerm</string>

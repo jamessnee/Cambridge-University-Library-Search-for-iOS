@@ -33,9 +33,7 @@
 
 @implementation Cambridge_Library_SearchViewController
 
-@synthesize entries, searchTypes, searchButton;
-
-NSInteger selectedSearchType;
+@synthesize entries,searchButton,searchOptions;
 
 #pragma mark - Setup
 -(IBAction)search:(id)sender{
@@ -59,7 +57,7 @@ NSInteger selectedSearchType;
 	
 	//Get the search type code
 	NSMutableString *searchCode = [[NSMutableString alloc]initWithString:@"searchCode="];
-	switch (selectedSearchType) {
+	switch ([searchOptions getPickerRow]) {
 		case 0:
 			[searchCode appendString:@"GKEY&"];
 			break;
@@ -223,24 +221,6 @@ NSInteger selectedSearchType;
 	[self switchView];
 }
 
-#pragma mark - UIPickerView stuff
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-	return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-	return [searchTypes count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	return [searchTypes objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-	selectedSearchType = row;
-	NSLog(@"Converted into %d",selectedSearchType);
-}
-
 #pragma mark - View lifecycle
 - (void)viewDidLoad
 {
@@ -249,18 +229,11 @@ NSInteger selectedSearchType;
     returnedData = [[NSMutableData data] retain];
 	self.title = @"Search";
 	
-	searchTypes = [[NSArray alloc] initWithObjects:@"General",
-	@"Title",
-	@"Author Name",
-	@"Subject",
-	@"ISBN",
-	@"Series",
-	@"Publisher:Date",
-	@"Publisher:Name",
-	@"ISSN",
-	@"Personal Name", nil];
-	
-	selectedSearchType = 0;
+	searchOptions = [[SearchOptions alloc]init];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+	NSLog(@"Search Options: %@",searchOptions.searchType);
 }
 
 - (void)viewDidUnload
@@ -288,7 +261,8 @@ NSInteger selectedSearchType;
 }
 
 -(IBAction)showSearchOptions:(id)sender{
-	SearchOptionsView *searchOptionsView = [[SearchOptionsView alloc]initWithNibName:@"SearchOptionsView" bundle:nil];
+	//SearchOptionsView *searchOptionsView = [[SearchOptionsView alloc]initWithNibName:@"SearchOptionsView" bundle:nil];
+	SearchOptionsView *searchOptionsView = [[SearchOptionsView alloc]initWithNibName:@"SearchOptionsView" bundle:nil searchOptions:searchOptions];
 	[self.navigationController pushViewController:searchOptionsView animated:YES];
 }
 

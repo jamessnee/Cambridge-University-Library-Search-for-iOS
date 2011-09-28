@@ -15,11 +15,30 @@
 - (id)init
 {
     self = [super init];
+	if(self){
+		//Set the default search Type to General
+		searchType = @"General";
+		
+		//Set the default db to be db_cambridge
+		dbSelected = [[NSMutableArray alloc]initWithObjects:@"db_cambridge", nil];
+		pickerRow = 0;
+	}
     return self;
 }
 
 -(void)addDb:(NSString *)dbName{
 	[dbSelected addObject:dbName];
+}
+
+-(void)removeDb:(NSString *)dbName{
+	[dbSelected removeObject:dbName];
+}
+
+-(NSInteger)getPickerRow{
+	return pickerRow;
+}
+-(void)setPickerRow:(NSInteger)num{
+	pickerRow = num;
 }
 
 @end

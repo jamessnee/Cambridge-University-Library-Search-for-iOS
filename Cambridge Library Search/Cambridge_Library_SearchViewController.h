@@ -28,15 +28,17 @@
 
 #import <UIKit/UIKit.h>
 #import "Entry.h"
+#import "SearchOptions.h"
 
 @class SBJsonParser;
 @class Entry;
+@class SearchOptions;
 
 @interface Cambridge_Library_SearchViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource> {
 
     IBOutlet UITextField *txt_searchTerm;
-	IBOutlet UIPickerView *searchTypePicker;
-	NSArray *searchTypes;
+	//IBOutlet UIPickerView *searchTypePicker;
+	//NSArray *searchTypes;
     
     NSMutableData *returnedData;
 	SBJsonParser *parser;
@@ -45,12 +47,15 @@
 	IBOutlet UIActivityIndicatorView *activityIndicator;
 	
 	IBOutlet UIButton *searchButton;
+	
+	SearchOptions *searchOptions;
 }
 
 //Properties
 @property (retain)NSMutableArray *entries;
-@property (retain)NSArray *searchTypes;
+//@property (retain)NSArray *searchTypes;
 @property (retain)IBOutlet UIButton *searchButton;
+@property (retain)SearchOptions *searchOptions;
 
 //Methods
 -(IBAction)search: (id)sender;
