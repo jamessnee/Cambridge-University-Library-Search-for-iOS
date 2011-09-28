@@ -35,6 +35,8 @@
 
 @synthesize entries,searchButton,searchOptions;
 
+int previousPageNum=0; //Horrid hack!
+
 #pragma mark - Setup
 -(IBAction)search:(id)sender{
 	
@@ -154,6 +156,8 @@
 	parser = [[SBJsonParser alloc]init];
 	
 	[url release];
+	
+	previousPageNum = pageNum;
 }
 
 - (void)didReceiveMemoryWarning
@@ -304,7 +308,7 @@
 	NSDictionary *nextPage = [results objectForKey:@"next_page"];
 	NSString *pageNumStr = (NSString *)[nextPage objectForKey:@"page"];
 	NSInteger pageNum = [pageNumStr intValue];
-	if(pageNum <= 25)
+	if(pageNum <= 25 && pageNum>previousPageNum)
 		[self searchAquabrowserThinPage:pageNum];
 	else
 		[self switchView];

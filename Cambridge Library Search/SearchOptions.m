@@ -25,8 +25,8 @@
 		pickerRow = 0;
 		
 		//Set the default search provider
-		searchProvider = @"Newton";
-		//searchProvider = @"Aquabrowser";
+		//searchProvider = @"Newton";
+		searchProvider = @"Aquabrowser";
 	}
     return self;
 }
