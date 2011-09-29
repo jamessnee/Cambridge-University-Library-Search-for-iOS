@@ -30,7 +30,7 @@
 
 @implementation Entry
 
-@synthesize entryType, author, title, edition, isbn, location_names, location_codes, extID, coverImageURL;
+@synthesize entryType, author, title, edition, isbn, location_names, location_codes, bibId, coverImageURL, database, pubDate;
 
 - (id)init
 {

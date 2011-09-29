@@ -33,27 +33,15 @@
 
 @implementation EntryView_Group
 
-@synthesize currEntry,recordTable, entry_full;
+@synthesize currEntry, entry_full,titleLbl,authorLbl,editionLbl,pubDateLbl,coverImage;
 
 NSInteger currPosInArray = 0;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entry:(Entry *)entry{
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        currEntry = [[NSArray alloc] initWithObjects:entry.title,entry.author,entry.edition,entry.isbn,[entry.location_names objectAtIndex:0],[entry.location_codes objectAtIndex:0], nil];
 		entry_full = entry;
-		NSLog(@"Holding library names: %@",[entry_full.location_names description]);
-		NSLog(@"Holding library codes: %@",[entry_full.location_codes description]);
-    }
+	}
     return self;
 }
 
@@ -65,26 +53,20 @@ NSInteger currPosInArray = 0;
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (IBAction)showAllLocations:(id)sender{	
-	NSMutableArray *recordLocations = [[NSMutableArray alloc]init];
-	for(NSString *lib in entry_full.location_names){
-		RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:lib andSubTitle:entry_full.title andLibraryName:lib];
-		[recordLocations addObject:recordLocation];
-	}
-	
-	MapView *map = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andRecordLocations:recordLocations];
-
-	[self.navigationController pushViewController:map animated:YES];
-}
-
 #pragma mark - View lifecycle
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
-	//Reset currPosInArray
-	//currPosInArray = 0;
+	[titleLbl setText:[entry_full title]];
+	[authorLbl setText:[entry_full author]];
+	[editionLbl setText:[entry_full edition]];
+	[pubDateLbl setText:[entry_full pubDate]];
+	
+	NSLog(@"Image at %@",[entry_full coverImageURL]);
+	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[entry_full coverImageURL]]];
+	UIImage *image = [UIImage imageWithData:imageData];
+	[coverImage setImage:image];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -102,95 +84,4 @@ NSInteger currPosInArray = 0;
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-#pragma mark - UITableView controller stuff
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-	NSInteger numOfSections = 2+[entry_full.location_names count];
-	NSLog(@"Setting number of sections to %d",numOfSections);
-	return numOfSections;
-}
-
-/*
- ===========
-	Title
-	Author
- ===========
- 
- ===========
-	Edition
- ===========
- 
- ===========
-   Lib Name
-   Lib Code
- ====...====
- */
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	if(section == 0)
-		return 2;
-	else if(section == 1)
-		return 1;
-	else
-		return 2;
-	
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	if(section == 0)
-		return @"Book Details:";
-	else if(section == 1)
-		return @"Edition Details:";
-	else
-		return @"Holding Details";
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *CellIdentifier = @"Cell";
-	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-	}
-	
-	if(indexPath.section==0){
-		if(indexPath.row==0)
-			[cell.textLabel setText:entry_full.title];
-		else if(indexPath.row == 1)
-			[cell.textLabel setText:entry_full.author];
-	}
-	else if(indexPath.section==1)
-		[cell.textLabel setText:entry_full.edition];
-	else if(indexPath.section>=2){
-		if(indexPath.row==0){
-			[cell.textLabel setText:[entry_full.location_names objectAtIndex:currPosInArray]];
-		}
-		else if(indexPath.row==1){
-			[cell.textLabel setText:[entry_full.location_codes objectAtIndex:currPosInArray]];
-			currPosInArray++;
-			NSLog(@"CURRENT POS IN ARRAY %d",currPosInArray);
-		}
-	}
-	
-	//Fix the cells label
-	[cell.textLabel setNumberOfLines:4];
-	[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
-	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
-	
-	return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[tableView deselectRowAtIndexPath:indexPath animated:NO];
-	if(indexPath.section >= 2)
-		if(indexPath.row == 0){
-			//RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:[entry_full.location_names objectAtIndex:0] andSubTitle:entry_full.title andLibraryName:[entry_full.location_names objectAtIndex:0]];
-			
-			UITableViewCell *currCell = [tableView cellForRowAtIndexPath:indexPath];
-			RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:currCell.textLabel.text andSubTitle:entry_full.title andLibraryName:currCell.textLabel.text];
-			
-			MapView *map = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andRecordLocation:recordLocation];
-			[self.navigationController pushViewController:map animated:YES];
-		}
-}
-
 @end

@@ -9,7 +9,7 @@
 #import "SearchOptionsView.h"
 
 @implementation SearchOptionsView
-@synthesize searchTypes,searchOptions,db_cambridge,db_depfacaedb,db_depfacfmdb,db_depfacozdb,db_otherdb,db_manuscrpdb;
+@synthesize searchTypes,searchOptions,db_ulDep,db_depsFacs,db_collegeLibs,db_afilInst,db_eResource,pagesNumLabel,pagesNumSlider;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil searchOptions:(SearchOptions *)searchOpts
 {
@@ -24,25 +24,6 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-#pragma mark - UIPickerView stuff
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-	return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-	return [searchTypes count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	return [searchTypes objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-	searchOptions.searchType = [searchTypes objectAtIndex:row];
-	[searchOptions setPickerRow:row];
-}
-
 
 #pragma mark - View lifecycle
 - (void)viewDidLoad
@@ -62,32 +43,35 @@
 				   @"Personal Name", nil];
 	
 	//Set the switches
-	NSArray *dbSwitches = [[NSArray alloc]initWithObjects:db_cambridge,db_depfacaedb,db_depfacfmdb,db_depfacozdb,db_otherdb,db_manuscrpdb, nil];
+	//NSArray *dbSwitches = [[NSArray alloc]initWithObjects:db_ulDep,db_depsFacs,db_collegeLibs,db_afilInst,db_eResource,nil];
 	
 	//Set the first switch for now
-	UISwitch *topSwitch = [dbSwitches objectAtIndex:0];
-	[topSwitch setOn:YES];
+	//UISwitch *topSwitch = [dbSwitches objectAtIndex:0];
+	//[topSwitch setOn:YES];
+	
+	for(NSString *i in [searchOptions dbSelected])
+		NSLog(@"SWITCHES: %@",i);
 	
 	//Set the switches
 	for (int i=0; i<[[searchOptions dbSelected] count]; i++) {
 		NSString *currDbName = [[searchOptions dbSelected]objectAtIndex:i];
-		if([currDbName isEqualToString:@"cambridgedb"]){
-		   [db_cambridge setOn:YES];
-		}else if([currDbName isEqualToString:@"depfacaedb"]){
-		   [db_depfacaedb setOn:YES];
-		}else if([currDbName isEqualToString:@"depfacfmdb"]){
-		   [db_depfacfmdb setOn:YES];
-		}else if([currDbName isEqualToString:@"depfacozdb"]){
-		   [db_depfacozdb setOn:YES];
-		}else if([currDbName isEqualToString:@"otherdb"]){
-		   [db_otherdb setOn:YES];
-		}else if([currDbName isEqualToString:@"manuscrpdb"]){
-		   [db_manuscrpdb setOn:YES];
+		if([currDbName isEqualToString:@"db_ulDep"]){
+		   [db_ulDep setOn:YES];
+		}else if([currDbName isEqualToString:@"db_depsFacs"]){
+		   [db_depsFacs setOn:YES];
+		}else if([currDbName isEqualToString:@"db_collegeLibs"]){
+		   [db_collegeLibs setOn:YES];
+		}else if([currDbName isEqualToString:@"db_afilInst"]){
+		   [db_afilInst setOn:YES];
+		}else if([currDbName isEqualToString:@"db_eResource"]){
+		   [db_eResource setOn:YES];
 		}
 	}
 	
-	//Select the correct row in the picker
-	[searchTypePicker selectRow:[searchOptions getPickerRow] inComponent:0 animated:NO];
+	//Show the correct number of pages selected
+	[pagesNumSlider setValue:[[searchOptions numOfPages] floatValue]];
+	NSString *pagesNum = [NSString stringWithFormat:@"%d",[[searchOptions numOfPages] intValue]];
+	[pagesNumLabel setText:pagesNum];
 }
 
 - (void)viewDidUnload
@@ -116,35 +100,41 @@
 	
 	if(sw.tag == 0){
 		if (sw.isOn)
-			[searchOptions addDb:@"cambridgedb"];
+			[searchOptions addDb:@"db_ulDep"];
 		else
-			[searchOptions removeDb:@"cambridgedb"];
+			[searchOptions removeDb:@"db_ulDep"];
 	}else if(sw.tag == 1){
 		if (sw.isOn)
-			[searchOptions addDb:@"depfacaedb"];
+			[searchOptions addDb:@"db_depsFacs"];
 		else
-			[searchOptions removeDb:@"depfacaedb"];
+			[searchOptions removeDb:@"db_depsFacs"];
 	}else if(sw.tag == 2){
 		if (sw.isOn)
-			[searchOptions addDb:@"depfacfmdb"];
+			[searchOptions addDb:@"db_collegeLibs"];
 		else
-			[searchOptions removeDb:@"depfacfmdb"];
+			[searchOptions removeDb:@"db_collegeLibs"];
 	}else if(sw.tag == 3){
 		if (sw.isOn)
-			[searchOptions addDb:@"depfacozdb"];
+			[searchOptions addDb:@"db_afilInst"];
 		else
-			[searchOptions removeDb:@"depfacozdb"];
+			[searchOptions removeDb:@"db_afilInst"];
 	}else if(sw.tag == 4){
 		if (sw.isOn)
-			[searchOptions addDb:@"otherdb"];
+			[searchOptions addDb:@"db_eResource"];
 		else
-			[searchOptions removeDb:@"otherdb"];
-	}else if(sw.tag == 5){
-		if (sw.isOn)
-			[searchOptions addDb:@"manuscrpdb"];
-		else
-			[searchOptions removeDb:@"manuscrpdb"];
+			[searchOptions removeDb:@"db_eResource"];
 	}
+}
+
+-(IBAction)sliderValueChanged:(id)sender{
+	UISlider *slider = (UISlider *)sender;
+	int discreteValue = slider.value;
+    [slider setValue:(float)discreteValue];
+	NSString *currValue = [NSString stringWithFormat:@"%d",discreteValue];
+	[pagesNumLabel setText:currValue];
+	
+	NSNumber *numPages = [NSNumber numberWithInt:discreteValue];
+	[searchOptions setNumOfPages:numPages];
 }
 
 @end

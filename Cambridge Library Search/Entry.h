@@ -39,8 +39,10 @@
 	NSArray *location_codes;
 	
 	//Aquabrowser specific
-	NSString *extID;
+	NSString *bibId;
 	NSString *coverImageURL;
+	NSString *database;
+	NSString *pubDate;
 }
 
 //Properties
@@ -52,8 +54,10 @@
 @property (retain) NSArray *location_names;
 @property (retain) NSArray *location_codes;
 
-@property (retain) NSString *extID;
+@property (retain) NSString *bibId;
 @property (retain) NSString *coverImageURL;
+@property (retain) NSString *database;
+@property (retain) NSString *pubDate;
 
 -(id)initWithEntryType:(NSString *)type;
 

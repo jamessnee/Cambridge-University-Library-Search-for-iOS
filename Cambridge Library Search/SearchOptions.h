@@ -35,16 +35,13 @@
 @interface SearchOptions : NSObject{
 	NSString *searchType;
 	NSMutableArray *dbSelected;
-	NSInteger pickerRow; // for convenience
+	NSNumber *numOfPages;
 }
 
 @property (retain) NSString *searchType;
 @property (retain) NSMutableArray *dbSelected;
+@property (retain) NSNumber *numOfPages;
 
 -(void)addDb:(NSString *)dbName;
 -(void)removeDb:(NSString *)dbName;
-
--(NSInteger)getPickerRow;
--(void)setPickerRow:(NSInteger)num;
-
 @end

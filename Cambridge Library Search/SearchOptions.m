@@ -33,7 +33,7 @@
 #import "SearchOptions.h"
 
 @implementation SearchOptions
-@synthesize searchType, dbSelected;
+@synthesize searchType, dbSelected, numOfPages;
 
 
 - (id)init
@@ -45,8 +45,11 @@
 		
 		//Set the default db to be db_cambridge
 		dbSelected = [[NSMutableArray alloc]init];
-		[self addDb:@"cambrdgedb"];
-		pickerRow = 0;
+		[self addDb:@"db_ulDep"];
+		
+		//Set the default number of pages to 1 
+		NSNumber *numPages = [NSNumber numberWithInt:1];
+		numOfPages = numPages;
 	}
     return self;
 }
@@ -57,15 +60,13 @@
 
 -(void)removeDb:(NSString *)dbName{
 	NSLog(@"Count before: %d",[dbSelected count]);
+	for(NSString *i in dbSelected)
+		NSLog(@"%@",i);
+	
 	[dbSelected removeObject:dbName];
 	NSLog(@"Count after: %d",[dbSelected count]);
-}
-
--(NSInteger)getPickerRow{
-	return pickerRow;
-}
--(void)setPickerRow:(NSInteger)num{
-	pickerRow = num;
+	for(NSString *i in dbSelected)
+		NSLog(@"%@",i);
 }
 
 @end

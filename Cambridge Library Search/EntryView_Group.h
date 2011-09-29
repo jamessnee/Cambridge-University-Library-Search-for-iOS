@@ -31,18 +31,27 @@
 
 @class Entry;
 
-@interface EntryView_Group : UIViewController<UITableViewDelegate,UITableViewDataSource>{
+@interface EntryView_Group : UIViewController{
 	NSArray *currEntry;
 	Entry *entry_full;
-	IBOutlet UITableView *recordTable;
+	
+	IBOutlet UILabel *titleLbl;
+	IBOutlet UILabel *authorLbl;
+	IBOutlet UILabel *editionLbl;
+	IBOutlet UILabel *pubDateLbl;
+	
+	IBOutlet UIImageView *coverImage;
 }
 
 @property (retain) NSArray *currEntry;
 @property (retain) Entry *entry_full;
-@property (retain) IBOutlet UITableView *recordTable;
+
+@property (retain) IBOutlet UILabel *titleLbl;
+@property (retain) IBOutlet UILabel *authorLbl;
+@property (retain) IBOutlet UILabel *editionLbl;
+@property (retain) IBOutlet UILabel *pubDateLbl;
+@property (retain) IBOutlet UIImageView *coverImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entry:(Entry *)entry;
-
-- (IBAction)showAllLocations:(id)sender;
 
 @end

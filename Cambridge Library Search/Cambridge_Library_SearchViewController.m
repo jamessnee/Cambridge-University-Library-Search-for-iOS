@@ -36,6 +36,7 @@
 @synthesize entries,searchButton,searchOptions;
 
 int previousPageNum=0; //Horrid hack!
+float progressIncrement=0;
 
 #pragma mark - Setup
 -(IBAction)search:(id)sender{
@@ -59,7 +60,16 @@ int previousPageNum=0; //Horrid hack!
     NSString *searchTerm = [txt_searchTerm text];
     NSMutableString *url = [[NSMutableString alloc] init];
     NSString *searchArg = [NSString stringWithFormat:@"searchArg=%@&",searchTerm];
-	NSString *database = @"branch=UL & Dependents&";
+	
+	//Search the correct databases
+	NSMutableString *database = [NSMutableString stringWithString:@"branch="];
+	NSArray *dbSelected = [searchOptions dbSelected];
+	for(int i=0;i<[dbSelected count];i++){
+		[database appendFormat:@"%@",[dbSelected objectAtIndex:i]];
+		if(i+1!=[dbSelected count])
+			[database appendString:@","];
+	}
+	[database appendString:@"&"];
 	
 	NSString *page = [NSString stringWithFormat:@"resultsPage=%d&",pageNum];
     NSString *format = @"format=json";
@@ -117,7 +127,7 @@ int previousPageNum=0; //Horrid hack!
 	
 	NSString *responseString = [[NSString alloc]initWithData:returnedData encoding:NSUTF8StringEncoding];
 	
-	progressBar.progress = progressBar.progress+0.04f;
+	progressBar.progress = progressBar.progress+progressIncrement;
 	[self parseAquabrowserData:responseString];
 
 	if([entries count]==0){
@@ -133,67 +143,6 @@ int previousPageNum=0; //Horrid hack!
 }
 
 #pragma mark - JSON Parsing
--(void)parseNewtonData:(NSString *)responseString{
-	//init entries array
-	entries = [[NSMutableArray alloc] init];
-	
-	//Parse the json
-	NSError *jsonError = nil;
-	NSDictionary *data = (NSDictionary *) [parser objectWithString:responseString error:&jsonError];
-	NSDictionary *results = (NSDictionary *) [data objectForKey:@"search_results"];
-	NSDictionary *bib_record = (NSDictionary *) [results objectForKey:@"bib_record"];
-	
-	//Deal with the simple record stuff first
-	for (NSDictionary *record in bib_record){
-		Entry *en = [[Entry alloc]initWithEntryType:@"Newton"];
-		en.author = [record objectForKey:@"author"];
-		en.title = [record objectForKey:@"title"];
-		en.edition = [record objectForKey:@"edition"];
-		en.isbn = [record objectForKey:@"normalisedIsbn"];
-		
-		//Now delve into the holding data
-		NSDictionary *holdings = (NSDictionary *) [record objectForKey:@"holdings"];
-		//NSLog([holdings description]);
-		id holding_id  = (id) [holdings objectForKey:@"holding"];
-		
-		//If there is a single holding deal with it
-		if([holding_id isKindOfClass:[NSDictionary class]]){
-			NSDictionary *holding = (NSDictionary *) holding_id;
-			NSArray *location_namesLocal = [[NSArray alloc]initWithObjects:[holding objectForKey:@"locationName"], nil];
-			NSArray *location_codesLocal = [[NSArray alloc]initWithObjects:[holding objectForKey:@"locationCode"], nil];
-			en.location_names = location_namesLocal;
-			en.location_codes = location_codesLocal;
-			[location_namesLocal release];
-			[location_codesLocal release];
-		}
-		//If there are multiple holdings deal with these
-		else if ([holding_id isKindOfClass:[NSArray class]]){
-			NSArray *holdings = (NSArray *)holding_id;
-			NSMutableArray *location_namesLocal = [[NSMutableArray alloc]init];
-			NSMutableArray *location_codesLocal = [[NSMutableArray alloc]init];
-			for(NSDictionary *individual_holding in holdings){
-				[location_namesLocal addObject:[individual_holding objectForKey:@"locationName"]];
-				[location_codesLocal addObject:[individual_holding objectForKey:@"locationCode"]];
-			}
-			NSArray *fixedLocationNames = [[NSArray alloc]initWithArray:location_namesLocal];
-			NSArray *fixedLocationCodes = [[NSArray alloc]initWithArray:location_codesLocal];
-			en.location_names = fixedLocationNames;
-			en.location_codes = fixedLocationCodes;
-			
-			[location_namesLocal release];
-			[location_codesLocal release];
-			[fixedLocationNames release];
-			[fixedLocationCodes release];
-		}
-		
-		//Tidy up before the next itteration
-		[entries addObject:en];
-		[en release];
-	}
-	[responseString release];
-	[parser release];
-}
-
 -(void)parseAquabrowserData:(NSString *)responseString{
 	//init entries array if this is the first time we've looked here
 	if (entries == nil) {
@@ -212,8 +161,10 @@ int previousPageNum=0; //Horrid hack!
 		Entry *currEntry = [[Entry alloc]initWithEntryType:@"Aquabrowser"];
 		
 		currEntry.title = [record objectForKey:@"title"];
-		currEntry.extID = [record objectForKey:@"extID"];
-		currEntry.coverImageURL = [record objectForKey:@"\"cover_image_url\""];
+		currEntry.bibId = [record objectForKey:@"bibId"];
+		currEntry.coverImageURL = [record objectForKey:@"cover_image_url"];
+		NSLog(@"%@",[currEntry coverImageURL]);
+		currEntry.database = [record objectForKey:@"database"];
 		
 		[entries addObject:currEntry];
 		[currEntry release];
@@ -221,10 +172,11 @@ int previousPageNum=0; //Horrid hack!
 	[responseString release];
 	[parser release];
 
+	//If there are still pages to search (in searchOptions) and we're not looping back on ourselves. Search again.
 	NSDictionary *nextPage = [results objectForKey:@"next_page"];
 	NSString *pageNumStr = (NSString *)[nextPage objectForKey:@"page"];
 	NSInteger pageNum = [pageNumStr intValue];
-	if(pageNum <= 25 && pageNum>previousPageNum)
+	if(pageNum <= [[searchOptions numOfPages] intValue] && pageNum>previousPageNum)
 		[self searchAquabrowserThinPage:pageNum];
 	else
 		[self switchView];
@@ -239,17 +191,16 @@ int previousPageNum=0; //Horrid hack!
 	self.title = @"Search";
 	
 	searchOptions = [[SearchOptions alloc]init];
+	progressIncrement = 1/[[searchOptions numOfPages] floatValue];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	NSLog(@"Search Options: %@",searchOptions.searchType);
+	progressIncrement = 1/[[searchOptions numOfPages] floatValue];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -270,7 +221,6 @@ int previousPageNum=0; //Horrid hack!
 }
 
 -(IBAction)showSearchOptions:(id)sender{
-	//SearchOptionsView *searchOptionsView = [[SearchOptionsView alloc]initWithNibName:@"SearchOptionsView" bundle:nil];
 	SearchOptionsView *searchOptionsView = [[SearchOptionsView alloc]initWithNibName:@"SearchOptionsView" bundle:nil searchOptions:searchOptions];
 	[self.navigationController pushViewController:searchOptionsView animated:YES];
 }

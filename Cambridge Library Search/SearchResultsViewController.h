@@ -27,16 +27,30 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Entry.h"
 
+@class Entry;
+@class SBJsonParser;
 @interface SearchResultsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>{
 	
 	NSArray *searchResults;
 
 	IBOutlet UITableView *tblView;
+	
+	SBJsonParser *parser;
+	
+	NSMutableData *returnedData;
 }
 
 @property (retain) NSArray *searchResults;
+@property (retain) SBJsonParser *parser;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entries:(NSArray *)entries;
+
+-(void)switchViewToEntry:(Entry *)en;
+
+-(void)getFullEntry:(Entry *)en;
+
+-(void)parseFullRecordData:(NSString *)responseString;
 
 @end

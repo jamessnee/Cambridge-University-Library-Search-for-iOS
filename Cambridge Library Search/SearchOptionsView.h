@@ -10,15 +10,15 @@
 #import "SearchOptions.h"
 
 @class SearchOptions;
-@interface SearchOptionsView : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>{
-	IBOutlet UISwitch *db_cambridge;
-	IBOutlet UISwitch *db_depfacaedb;
-	IBOutlet UISwitch *db_depfacfmdb;
-	IBOutlet UISwitch *db_depfacozdb;
-	IBOutlet UISwitch *db_otherdb;
-	IBOutlet UISwitch *db_manuscrpdb;
+@interface SearchOptionsView : UIViewController{
+	IBOutlet UISwitch *db_ulDep;
+	IBOutlet UISwitch *db_depsFacs;
+	IBOutlet UISwitch *db_collegeLibs;
+	IBOutlet UISwitch *db_afilInst;
+	IBOutlet UISwitch *db_eResource;
 	
-	IBOutlet UIPickerView *searchTypePicker;
+	IBOutlet UISlider *pagesNumSlider;
+	IBOutlet UILabel *pagesNumLabel;
 	
 	NSArray *searchTypes;
 	
@@ -28,14 +28,18 @@
 @property (retain) NSArray *searchTypes;
 @property (retain) SearchOptions *searchOptions;
 
-@property (retain) IBOutlet UISwitch *db_cambridge;
-@property (retain) IBOutlet UISwitch *db_depfacaedb;
-@property (retain) IBOutlet UISwitch *db_depfacfmdb;
-@property (retain) IBOutlet UISwitch *db_depfacozdb;
-@property (retain) IBOutlet UISwitch *db_otherdb;
-@property (retain) IBOutlet UISwitch *db_manuscrpdb;
+@property (retain) IBOutlet UISwitch *db_ulDep;
+@property (retain) IBOutlet UISwitch *db_depsFacs;
+@property (retain) IBOutlet UISwitch *db_collegeLibs;
+@property (retain) IBOutlet UISwitch *db_afilInst;
+@property (retain) IBOutlet UISwitch *db_eResource;
+
+@property (retain) IBOutlet UISlider *pagesNumSlider;
+@property (retain) IBOutlet UILabel *pagesNumLabel;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil searchOptions:(SearchOptions *)searchOpts;
 -(IBAction)dbSwitchChanged:(id)sender;
+-(IBAction)sliderValueChanged:(id)sender;
 
 @end
