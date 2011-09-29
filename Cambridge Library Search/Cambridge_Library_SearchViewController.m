@@ -56,6 +56,7 @@ float progressIncrement=0;
 }
 
 -(void)searchAquabrowserThinPage:(int)pageNum{
+	NSLog(@"Search Term: %@",[txt_searchTerm text]);
 	//Build up the request 
     NSString *searchTerm = [txt_searchTerm text];
     NSMutableString *url = [[NSMutableString alloc] init];
@@ -105,7 +106,7 @@ float progressIncrement=0;
 #pragma mark - Data Connection
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	[returnedData setLength:0];
-	NSLog(@"Got a response");
+	//NSLog(@"Got a response");
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -146,7 +147,7 @@ float progressIncrement=0;
 -(void)parseAquabrowserData:(NSString *)responseString{
 	//init entries array if this is the first time we've looked here
 	if (entries == nil) {
-		NSLog(@"Creating new entries array");
+		//NSLog(@"Creating new entries array");
 		entries = [[NSMutableArray alloc] init];
 	}
 
@@ -158,12 +159,12 @@ float progressIncrement=0;
 	
 	//Deal with the simple record stuff first
 	for (NSDictionary *record in bib_record){
-		Entry *currEntry = [[Entry alloc]initWithEntryType:@"Aquabrowser"];
+		Entry *currEntry = [[Entry alloc]init];
 		
 		currEntry.title = [record objectForKey:@"title"];
 		currEntry.bibId = [record objectForKey:@"bibId"];
 		currEntry.coverImageURL = [record objectForKey:@"cover_image_url"];
-		NSLog(@"%@",[currEntry coverImageURL]);
+		//NSLog(@"%@",[currEntry coverImageURL]);
 		currEntry.database = [record objectForKey:@"database"];
 		
 		[entries addObject:currEntry];
@@ -196,6 +197,10 @@ float progressIncrement=0;
 
 -(void)viewDidAppear:(BOOL)animated{
 	progressIncrement = 1/[[searchOptions numOfPages] floatValue];
+	
+	/* Need to get rid of the entries, so make sure it's gone then ensure it's nil */
+	[entries dealloc];
+	entries = nil;
 }
 
 - (void)viewDidUnload

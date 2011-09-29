@@ -52,7 +52,6 @@ Entry * entry; //There must be a better way, but sice the connection is async it
 }
 
 #pragma mark - View lifecycle
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -72,7 +71,6 @@ Entry * entry; //There must be a better way, but sice the connection is async it
 }
 
 #pragma mark - Table View Controller
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 	return 1;
 }
@@ -160,11 +158,24 @@ Entry * entry; //There must be a better way, but sice the connection is async it
 	NSError *jsonError = nil;
 	NSDictionary *data = (NSDictionary *) [parser objectWithString:responseString error:&jsonError];
 	NSDictionary *bib_record = (NSDictionary *) [data objectForKey:@"bib_record"];
-	NSLog(@"%@",[bib_record allKeys]);
+	//NSLog(@"%@",[bib_record allKeys]);
 	entry.author = [bib_record objectForKey:@"author"];
 	entry.edition = [bib_record objectForKey:@"edition"];
 	entry.isbn = [bib_record objectForKey:@"isbn"];
 	entry.pubDate = [bib_record objectForKey:@"pubDate"];
+	
+	//Get the holding data
+	@try {
+		NSDictionary *holdings = [bib_record objectForKey:@"holdings"];
+		NSDictionary *holding = [holdings objectForKey:@"holding"];
+		[entry.libraryCodes addObject:[holdings objectForKey:@"libraryCode"]];
+		[entry.normalisedCallNos addObject:[holding objectForKey:@"normalisedCallNo"]];
+		[entry.locationCodes addObject:[holding objectForKey:@"locationCode"]];
+		[entry.locationNames addObject:[holding objectForKey:@"locationName"]];
+	}
+	@catch (NSException *exception) {
+		NSLog(@"Exception");
+	}
 	
 	[self switchViewToEntry:entry];
 }

@@ -62,6 +62,7 @@
 	return self;
 }
 
+/*
 -(NSString *)title{
 	return title;
 }
@@ -69,6 +70,7 @@
 -(NSString *)subtitle{
 	return subtitle;
 }
+ */
 
 
 /* 

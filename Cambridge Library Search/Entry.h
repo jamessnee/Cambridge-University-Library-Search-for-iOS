@@ -29,36 +29,41 @@
 #import <Foundation/Foundation.h>
 
 @interface Entry : NSObject{
-	NSString *entryType; //Either Netwon or Aquabrowser
 	
 	NSString *author;
 	NSString *title;
 	NSString *edition;
 	NSString *isbn;
-	NSArray *location_names;
-	NSArray *location_codes;
 	
 	//Aquabrowser specific
 	NSString *bibId;
 	NSString *coverImageURL;
 	NSString *database;
 	NSString *pubDate;
+	
+	//Holding Data
+	NSMutableArray *libraryCodes;
+	NSMutableArray *normalisedCallNos;
+	NSMutableArray *locationCodes;
+	NSMutableArray *locationNames;
+	NSMutableArray *callNos;
 }
 
 //Properties
-@property (retain) NSString *entryType;
 @property (retain) NSString *author;
 @property (retain) NSString *title;
 @property (retain) NSString *edition;
 @property (retain) NSString *isbn;
-@property (retain) NSArray *location_names;
-@property (retain) NSArray *location_codes;
 
 @property (retain) NSString *bibId;
 @property (retain) NSString *coverImageURL;
 @property (retain) NSString *database;
 @property (retain) NSString *pubDate;
 
--(id)initWithEntryType:(NSString *)type;
+@property (retain) NSMutableArray *libraryCodes;
+@property (retain) NSMutableArray *normalisedCallNos;
+@property (retain) NSMutableArray *locationCodes;
+@property (retain) NSMutableArray *locationNames;
+@property (retain) NSMutableArray *callNos;
 
 @end

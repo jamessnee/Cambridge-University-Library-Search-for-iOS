@@ -30,22 +30,14 @@
 
 @implementation Entry
 
-@synthesize entryType, author, title, edition, isbn, location_names, location_codes, bibId, coverImageURL, database, pubDate;
+@synthesize author, title, edition, isbn, bibId, coverImageURL, database, pubDate;
+@synthesize libraryCodes,normalisedCallNos,locationCodes,locationNames,callNos;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Initialization code here.
-    }
-    
-    return self;
-}
-
--(id)initWithEntryType:(NSString *)type{
-	self = [super init];
-    if (self) {
-        entryType = type;
     }
     
     return self;

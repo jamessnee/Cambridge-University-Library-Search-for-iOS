@@ -41,8 +41,11 @@
 @property (copy) NSString *title;
 @property (copy) NSString *subtitle;
 -(id)initWithTitle: (NSString *)n_title andSubTitle: (NSString *)n_subtitle andLibraryName:(NSString *) libName;
--(NSString *) title;
--(NSString *) subtitle;
+//-(NSString *) title;
+//-(NSString *) subtitle;
+
+-(NSArray *)getLibraryNames;
+-(NSArray *)getLibraryLocations;
 
 
 @end
