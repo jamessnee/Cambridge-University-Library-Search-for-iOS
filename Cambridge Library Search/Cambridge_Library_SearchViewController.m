@@ -40,94 +40,18 @@ int previousPageNum=0; //Horrid hack!
 #pragma mark - Setup
 -(IBAction)search:(id)sender{
 	
-	//Activity indicator
-	[activityIndicator setHidden:NO];
-	[activityIndicator startAnimating];
+	//Progress Bar
+	[progressBar setHidden:NO];
+	progressBar.progress = 0;
+	
 	
 	//Disable the search button to stop this being called multiple times
 	[searchButton setEnabled:NO];
 	
 	//Hide the keyboard
 	[txt_searchTerm resignFirstResponder];
-	
-	if([searchOptions.searchProvider isEqualToString:@"Newton"])
-		[self searchNewton];
-	else if([searchOptions.searchProvider isEqualToString:@"Aquabrowser"])
-		[self searchAquabrowserThinPage:1];
-}
 
--(void)searchNewton{
-	//Build up the request 
-    NSString *searchTerm = [txt_searchTerm text];
-    NSMutableString *url = [[NSMutableString alloc] init];
-    NSString *searchArg = [NSString stringWithFormat:@"searchArg=%@&",searchTerm];
-	NSMutableString *database = [[NSMutableString alloc]init];
-	[database appendString:@"databases="];
-	for(int i=0;i<[[searchOptions dbSelected] count]; i++){
-		[database appendString:[[searchOptions dbSelected]objectAtIndex:i]];
-		if((i+1)!=[[searchOptions dbSelected]count])
-			[database appendString:@","];
-	}
-	[database appendString:@"&"];
-	
-    NSString *format = @"format=json";
-	
-	//Get the search type code
-	NSMutableString *searchCode = [[NSMutableString alloc]initWithString:@"searchCode="];
-	switch ([searchOptions getPickerRow]) {
-		case 0:
-			[searchCode appendString:@"GKEY&"];
-			break;
-		case 1:
-			[searchCode appendString:@"TKEY&"];
-			break;
-		case 2:
-			[searchCode appendString: @"NKey&"];
-			break;
-		case 3:
-			[searchCode appendString:@"SKEY&"];
-			break;
-		case 4:
-			[searchCode appendString:@"ISBN&"];
-			break;
-		case 5:
-			[searchCode appendString:@"SERI&"];
-			break;
-		case 6:
-			[searchCode appendString:@"260C&"];
-			break;
-		case 7:
-			[searchCode appendString:@"260B&"];
-			break;
-		case 8:
-			[searchCode appendString:@"ISSN&"];
-			break;
-		case 9:
-			[searchCode appendString:@"100A&"];
-			break;
-		default:
-			[searchCode appendString:@"GKEY&"];
-			break;
-	}
-	
-    [url appendString:@"http://www.lib.cam.ac.uk/api/voyager/newtonSearch.cgi?"];
-    [url appendString:searchArg];
-    [url appendString:database];
-	[url appendString:searchCode];
-    [url appendString:format];
-	
-    NSLog(@"Searching for: %@",url);
-	NSString* escapedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:escapedUrl]];
-	[[NSURLConnection alloc] initWithRequest:request delegate:self];
-	
-	//Setup the parser after the request (fake threading I guess)
-	parser = [[SBJsonParser alloc]init];
-	
-	[searchCode release];
-	[url release];
-	//[con release];
+	[self searchAquabrowserThinPage:1];
 }
 
 -(void)searchAquabrowserThinPage:(int)pageNum{
@@ -184,7 +108,7 @@ int previousPageNum=0; //Horrid hack!
 	[alert release];
 	
 	//Tidy up
-	[activityIndicator stopAnimating];
+	[progressBar setHidden:YES];
 	[searchButton setEnabled:YES];
 }
 
@@ -192,11 +116,9 @@ int previousPageNum=0; //Horrid hack!
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc]initWithData:returnedData encoding:NSUTF8StringEncoding];
-	if([searchOptions.searchProvider isEqualToString:@"Newton"]){
-		[self parseNewtonData:responseString];
-	}else if([searchOptions.searchProvider isEqualToString:@"Aquabrowser"]){
-		[self parseAquabrowserData:responseString];
-	}
+	
+	progressBar.progress = progressBar.progress+0.04f;
+	[self parseAquabrowserData:responseString];
 
 	if([entries count]==0){
 		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Results" message:@"There were no results found for your search" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -204,15 +126,9 @@ int previousPageNum=0; //Horrid hack!
 		[alert release];
 		
 		//Tidy up
-		[activityIndicator stopAnimating];
 		[searchButton setEnabled:YES];
 		
 		return;
-	}
-	
-	if([searchOptions.searchProvider isEqualToString:@"Newton"]){
-		//Show the results
-		[self switchView];
 	}
 }
 
@@ -343,7 +259,7 @@ int previousPageNum=0; //Horrid hack!
 }
 
 - (void)switchView{
-	[activityIndicator stopAnimating];
+	[progressBar setHidden:YES];
 	[searchButton setEnabled:YES];
 	SearchResultsViewController *srvc = [[SearchResultsViewController alloc]initWithNibName:@"SearchResultsViewController" bundle:nil entries:entries];
 	[self.navigationController pushViewController:srvc animated:YES];

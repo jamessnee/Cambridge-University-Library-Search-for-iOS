@@ -44,26 +44,22 @@
 	SBJsonParser *parser;
 	NSMutableArray *entries;
 	
-	IBOutlet UIActivityIndicatorView *activityIndicator;
-	
 	IBOutlet UIButton *searchButton;
+	
+	IBOutlet UIProgressView *progressBar;
 	
 	SearchOptions *searchOptions;
 }
 
 //Properties
 @property (retain)NSMutableArray *entries;
-//@property (retain)NSArray *searchTypes;
 @property (retain)IBOutlet UIButton *searchButton;
 @property (retain)SearchOptions *searchOptions;
 
 //Methods
 -(IBAction)search: (id)sender;
--(void)searchNewton;
 -(void)searchAquabrowserThinPage:(int)pageNum;
--(void)searchAquabrowserAllRecords;
 -(void)switchView;
--(void)parseNewtonData:(NSString *)responseString;
 -(void)parseAquabrowserData:(NSString *)responseString;
 -(IBAction)hideKeyboard: (id)sender;
 -(IBAction)showSearchOptions:(id)sender;
