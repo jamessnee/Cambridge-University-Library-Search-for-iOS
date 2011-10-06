@@ -67,6 +67,13 @@ NSInteger currPosInArray = 0;
 	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[entry_full coverImageURL]]];
 	UIImage *image = [UIImage imageWithData:imageData];
 	[coverImage setImage:image];
+	
+	//DEBUG
+	NSLog(@"At debug in EntryView");
+	NSArray *locationNames = entry_full.locationNames;
+	for(NSString *name in locationNames){
+		
+	}
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -84,4 +91,34 @@ NSInteger currPosInArray = 0;
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - UITableView stuff
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+	return [[entry_full locationNames] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+	//Get the name of the library
+	NSString *currLibName = [[entry_full locationNames]objectAtIndex:[indexPath row]];
+	
+	UITableViewCell *currCell = [[UITableViewCell alloc]init];
+	[[currCell textLabel] setText:currLibName];
+	[[currCell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
+	[[currCell textLabel] setNumberOfLines:0];
+	
+	NSLog(@"Setting cell with name %@",currLibName);
+	
+	return currCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	//Detect the library selected
+	
+	//Find it's location
+	
+	//Create a recordLocation object for it
+	
+	//Switch to the map view
+}
+
 @end

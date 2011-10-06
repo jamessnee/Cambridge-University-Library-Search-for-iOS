@@ -31,7 +31,7 @@
 
 @class Entry;
 
-@interface EntryView_Group : UIViewController{
+@interface EntryView_Group : UIViewController<UITableViewDelegate, UITableViewDelegate>{
 	NSArray *currEntry;
 	Entry *entry_full;
 	
@@ -53,5 +53,9 @@
 @property (retain) IBOutlet UIImageView *coverImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entry:(Entry *)entry;
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

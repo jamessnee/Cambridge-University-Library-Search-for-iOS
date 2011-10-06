@@ -37,7 +37,11 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+		libraryCodes = [[NSMutableArray alloc]init];
+		normalisedCallNos = [[NSMutableArray alloc]init];
+		locationCodes = [[NSMutableArray alloc]init];
+		locationNames = [[NSMutableArray alloc]init];
+		callNos = [[NSMutableArray alloc]init];
     }
     
     return self;

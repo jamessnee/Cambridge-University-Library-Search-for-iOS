@@ -165,19 +165,29 @@ Entry * entry; //There must be a better way, but sice the connection is async it
 	entry.pubDate = [bib_record objectForKey:@"pubDate"];
 	
 	//Get the holding data
-	@try {
-		NSDictionary *holdings = [bib_record objectForKey:@"holdings"];
-		NSDictionary *holding = [holdings objectForKey:@"holding"];
-		[entry.libraryCodes addObject:[holdings objectForKey:@"libraryCode"]];
-		[entry.normalisedCallNos addObject:[holding objectForKey:@"normalisedCallNo"]];
-		[entry.locationCodes addObject:[holding objectForKey:@"locationCode"]];
-		[entry.locationNames addObject:[holding objectForKey:@"locationName"]];
-	}
-	@catch (NSException *exception) {
-		NSLog(@"Exception");
+	NSDictionary *holdings = [bib_record objectForKey:@"holdings"];
+	id holding = [holdings objectForKey:@"holding"];
+	if ([holding isKindOfClass:[NSArray class]]) { //There are multiple holdings
+		NSArray *allHoldings = (NSArray *)holding;
+		for(NSDictionary *currHolding in allHoldings){
+			[self parseHolding:currHolding];
+		}
+	}else if([holding isKindOfClass:[NSDictionary class]]){
+		NSDictionary *currHolding = (NSDictionary *)holding;
+		[self parseHolding:currHolding];
+	}else{
+		NSLog(@"No Results");
 	}
 	
 	[self switchViewToEntry:entry];
+}
+
+-(void)parseHolding:(NSDictionary *)currHolding{
+	[entry.libraryCodes addObject:[currHolding objectForKey:@"libraryCode"]];
+	[entry.normalisedCallNos addObject:[currHolding objectForKey:@"normalisedCallNo"]];
+	[entry.locationNames addObject:[currHolding objectForKey:@"locationName"]];
+	[entry.locationCodes addObject:[currHolding objectForKey:@"locationCode"]];
+	[entry.callNos addObject:[currHolding objectForKey:@"callNo"]];
 }
 
 @end

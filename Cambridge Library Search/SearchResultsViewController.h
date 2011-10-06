@@ -46,11 +46,9 @@
 @property (retain) SBJsonParser *parser;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil entries:(NSArray *)entries;
-
 -(void)switchViewToEntry:(Entry *)en;
-
 -(void)getFullEntry:(Entry *)en;
-
 -(void)parseFullRecordData:(NSString *)responseString;
+-(void)parseHolding:(NSDictionary *)currHolding;
 
 @end
