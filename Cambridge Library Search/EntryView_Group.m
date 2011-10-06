@@ -92,6 +92,11 @@ NSInteger currPosInArray = 0;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)switchViewWithRecordLocation:(RecordLocation *)recordLocation{
+	MapView *mapView = [[MapView alloc]initWithNibName:@"MapView" bundle:nil andRecordLocation:recordLocation];
+	[self.navigationController pushViewController:mapView animated:YES];
+}
+
 #pragma mark - UITableView stuff
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return [[entry_full locationNames] count];
@@ -112,13 +117,19 @@ NSInteger currPosInArray = 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	//Detect the library selected
-	
-	//Find it's location
+	//Detect the library selected - at the moment do this with a string search
+	//Must get the library codes from the guys at the library and put it all in a dictionary.
+	NSString *selectedLibraryName = [[entry_full locationNames]objectAtIndex:[indexPath row]];
+	NSString *selectedCallNumber = [[entry_full callNos]objectAtIndex:[indexPath row]];
 	
 	//Create a recordLocation object for it
+	RecordLocation *recordLocation = [[RecordLocation alloc]initWithTitle:selectedLibraryName andSubTitle:selectedCallNumber andLibraryName:selectedLibraryName];
+	
+	//Deselect the cell
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	//Switch to the map view
+	[self switchViewWithRecordLocation:recordLocation];
 }
 
 @end

@@ -44,8 +44,8 @@
 //-(NSString *) title;
 //-(NSString *) subtitle;
 
--(NSArray *)getLibraryNames;
--(NSArray *)getLibraryLocations;
++(NSArray *)getLibraryNames;
++(NSArray *)getLibraryLocations;
 
 
 @end
