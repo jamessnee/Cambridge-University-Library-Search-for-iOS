@@ -53,6 +53,8 @@
 		59C9820C13FE9CAC00EA27E0 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C9820A13FE9CAC00EA27E0 /* MapView.xib */; };
 		59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C9820D13FE9E7300EA27E0 /* MapKit.framework */; };
 		59F657061402A5CF0090C6F2 /* RecordLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F657051402A5CF0090C6F2 /* RecordLocation.m */; };
+		59FA79E4143EDCAC005106A6 /* IndoorLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FA79E2143EDCAC005106A6 /* IndoorLocationView.m */; };
+		59FA79E5143EDCAC005106A6 /* IndoorLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59FA79E3143EDCAC005106A6 /* IndoorLocationView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,9 @@
 		59C9820D13FE9E7300EA27E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		59F657041402A5CF0090C6F2 /* RecordLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordLocation.h; sourceTree = "<group>"; };
 		59F657051402A5CF0090C6F2 /* RecordLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordLocation.m; sourceTree = "<group>"; };
+		59FA79E1143EDCAC005106A6 /* IndoorLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorLocationView.h; sourceTree = "<group>"; };
+		59FA79E2143EDCAC005106A6 /* IndoorLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndoorLocationView.m; sourceTree = "<group>"; };
+		59FA79E3143EDCAC005106A6 /* IndoorLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndoorLocationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +272,8 @@
 				5945D7FD13FE911300A6EEE7 /* EntryView_Group.m */,
 				59C9820813FE9CAC00EA27E0 /* MapView.h */,
 				59C9820913FE9CAC00EA27E0 /* MapView.m */,
+				59FA79E1143EDCAC005106A6 /* IndoorLocationView.h */,
+				59FA79E2143EDCAC005106A6 /* IndoorLocationView.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 				59504E6113FD464F00239970 /* SearchResultsViewController.xib */,
 				5945D7FE13FE911300A6EEE7 /* EntryView_Group.xib */,
 				59C9820A13FE9CAC00EA27E0 /* MapView.xib */,
+				59FA79E3143EDCAC005106A6 /* IndoorLocationView.xib */,
 				590415B313FC19DC00621782 /* MainWindow.xib */,
 			);
 			name = Views;
@@ -396,6 +404,7 @@
 				59A0DFD71405B1930051F4D3 /* Default.png in Resources */,
 				59A0DFD91405B37F0051F4D3 /* Default@2x.png in Resources */,
 				595CD1B2143354B30045DA40 /* SearchOptionsView.xib in Resources */,
+				59FA79E5143EDCAC005106A6 /* IndoorLocationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +462,7 @@
 				59A9764D1416463D00A7E277 /* SBJsonWriter.m in Sources */,
 				595CD1B1143354B30045DA40 /* SearchOptionsView.m in Sources */,
 				595CD1B7143360180045DA40 /* SearchOptions.m in Sources */,
+				59FA79E4143EDCAC005106A6 /* IndoorLocationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
