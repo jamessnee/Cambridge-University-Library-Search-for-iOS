@@ -29,6 +29,7 @@
 #import "MapView.h"
 #import <MapKit/MapKit.h>
 #import "RecordLocation.h"
+#import "IndoorLocationView.h"
 
 @implementation MapView
 
@@ -98,10 +99,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)switchViewWithLibraryName:(NSString *)libraryName{
+	IndoorLocationView *indoorLocV = [[IndoorLocationView alloc]initWithLocaitonName:libraryName];
+	[self.navigationController pushViewController:indoorLocV animated:YES];
+}
 
 #pragma mark - MapView Stuff
 - (void)mapViewWillStartLoadingMap:(MKMapView *)mapView{
 	NSLog(@"MAP LOADING");
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
+	RecordLocation *rec = [view annotation];
+	[self switchViewWithLibraryName:rec.libraryName];
 }
 
 @end

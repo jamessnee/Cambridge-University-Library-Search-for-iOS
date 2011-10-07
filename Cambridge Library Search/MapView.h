@@ -45,4 +45,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocation:(RecordLocation *)n_recordLocation;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andRecordLocations:(NSArray *)n_recordLocations;
 
+-(void)switchViewWithLibraryName:(NSString *)libraryName;
+
 @end
