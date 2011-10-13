@@ -55,6 +55,7 @@
 		59F657061402A5CF0090C6F2 /* RecordLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F657051402A5CF0090C6F2 /* RecordLocation.m */; };
 		59FA79E4143EDCAC005106A6 /* IndoorLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FA79E2143EDCAC005106A6 /* IndoorLocationView.m */; };
 		59FA79E5143EDCAC005106A6 /* IndoorLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59FA79E3143EDCAC005106A6 /* IndoorLocationView.xib */; };
+		59FF6DCC14423BC900810122 /* books.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FF6DCB14423BC900810122 /* books.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		59FA79E1143EDCAC005106A6 /* IndoorLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorLocationView.h; sourceTree = "<group>"; };
 		59FA79E2143EDCAC005106A6 /* IndoorLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndoorLocationView.m; sourceTree = "<group>"; };
 		59FA79E3143EDCAC005106A6 /* IndoorLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndoorLocationView.xib; sourceTree = "<group>"; };
+		59FF6DCB14423BC900810122 /* books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = books.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 		590415CA13FC19DC00621782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59FF6DCB14423BC900810122 /* books.png */,
 				590415CB13FC19DC00621782 /* Cambridge Library SearchTests-Info.plist */,
 				590415CC13FC19DC00621782 /* InfoPlist.strings */,
 			);
@@ -405,6 +408,7 @@
 				59A0DFD91405B37F0051F4D3 /* Default@2x.png in Resources */,
 				595CD1B2143354B30045DA40 /* SearchOptionsView.xib in Resources */,
 				59FA79E5143EDCAC005106A6 /* IndoorLocationView.xib in Resources */,
+				59FF6DCC14423BC900810122 /* books.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +587,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "68ACFC3F-8844-48AA-A919-832021360623";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -599,6 +604,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

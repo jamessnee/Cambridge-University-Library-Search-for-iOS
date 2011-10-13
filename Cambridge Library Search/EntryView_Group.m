@@ -55,6 +55,8 @@ NSInteger currPosInArray = 0;
 {
     [super viewDidLoad];
 	
+	[self setTitle:@"Record"];
+	
 	[titleLbl setText:[entry_full title]];
 	[authorLbl setText:[entry_full author]];
 	[editionLbl setText:[entry_full edition]];
@@ -94,12 +96,15 @@ NSInteger currPosInArray = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	//Get the name of the library
-	NSString *currLibName = [[entry_full locationNames]objectAtIndex:[indexPath row]];
+	NSMutableString *currLibName = [NSMutableString stringWithString:[[entry_full locationNames]objectAtIndex:[indexPath row]]];
+	[currLibName appendString:@"\n"];
+	[currLibName appendString:[[entry_full normalisedCallNos] objectAtIndex:[indexPath row]]];
 	
 	UITableViewCell *currCell = [[UITableViewCell alloc]init];
 	[[currCell textLabel] setText:currLibName];
 	[[currCell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
 	[[currCell textLabel] setNumberOfLines:0];
+	[currCell setFont:[UIFont fontWithName:@"Helvetica" size:(14.0)]];
 	
 	NSLog(@"Setting cell with name %@",currLibName);
 	

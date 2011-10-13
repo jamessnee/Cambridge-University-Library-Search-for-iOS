@@ -89,6 +89,7 @@
 	CGRect frame = [[UIScreen mainScreen]bounds];
 	UIImageView *floorPlanView = [[UIImageView alloc]initWithFrame:frame];
 	[floorPlanView setImage:floorPlan];
+
 	
 	UIImageView *locationPlanView = [[UIImageView alloc]initWithFrame:frame];
 	[locationPlanView setImage:locationPlan];
