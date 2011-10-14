@@ -53,9 +53,9 @@
 		59C9820C13FE9CAC00EA27E0 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C9820A13FE9CAC00EA27E0 /* MapView.xib */; };
 		59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C9820D13FE9E7300EA27E0 /* MapKit.framework */; };
 		59F657061402A5CF0090C6F2 /* RecordLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F657051402A5CF0090C6F2 /* RecordLocation.m */; };
+		59F8B34E1447B03C0090CC69 /* books.png in Resources */ = {isa = PBXBuildFile; fileRef = 59F8B34D1447B03C0090CC69 /* books.png */; };
 		59FA79E4143EDCAC005106A6 /* IndoorLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FA79E2143EDCAC005106A6 /* IndoorLocationView.m */; };
 		59FA79E5143EDCAC005106A6 /* IndoorLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59FA79E3143EDCAC005106A6 /* IndoorLocationView.xib */; };
-		59FF6DCC14423BC900810122 /* books.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FF6DCB14423BC900810122 /* books.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,10 +136,10 @@
 		59C9820D13FE9E7300EA27E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		59F657041402A5CF0090C6F2 /* RecordLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordLocation.h; sourceTree = "<group>"; };
 		59F657051402A5CF0090C6F2 /* RecordLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordLocation.m; sourceTree = "<group>"; };
+		59F8B34D1447B03C0090CC69 /* books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = books.png; sourceTree = "<group>"; };
 		59FA79E1143EDCAC005106A6 /* IndoorLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorLocationView.h; sourceTree = "<group>"; };
 		59FA79E2143EDCAC005106A6 /* IndoorLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndoorLocationView.m; sourceTree = "<group>"; };
 		59FA79E3143EDCAC005106A6 /* IndoorLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndoorLocationView.xib; sourceTree = "<group>"; };
-		59FF6DCB14423BC900810122 /* books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = books.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +221,7 @@
 		590415A813FC19DC00621782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59F8B34D1447B03C0090CC69 /* books.png */,
 				590415A913FC19DC00621782 /* Cambridge Library Search-Info.plist */,
 				590415AA13FC19DC00621782 /* InfoPlist.strings */,
 				590415AD13FC19DC00621782 /* main.m */,
@@ -242,7 +243,6 @@
 		590415CA13FC19DC00621782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				59FF6DCB14423BC900810122 /* books.png */,
 				590415CB13FC19DC00621782 /* Cambridge Library SearchTests-Info.plist */,
 				590415CC13FC19DC00621782 /* InfoPlist.strings */,
 			);
@@ -408,7 +408,7 @@
 				59A0DFD91405B37F0051F4D3 /* Default@2x.png in Resources */,
 				595CD1B2143354B30045DA40 /* SearchOptionsView.xib in Resources */,
 				59FA79E5143EDCAC005106A6 /* IndoorLocationView.xib in Resources */,
-				59FF6DCC14423BC900810122 /* books.png in Resources */,
+				59F8B34E1447B03C0090CC69 /* books.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

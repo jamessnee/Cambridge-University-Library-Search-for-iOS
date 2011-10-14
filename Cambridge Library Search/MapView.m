@@ -105,13 +105,35 @@
 }
 
 #pragma mark - MapView Stuff
+/*
 - (void)mapViewWillStartLoadingMap:(MKMapView *)mapView{
-	NSLog(@"MAP LOADING");
+
 }
+ */
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
 	RecordLocation *rec = [view annotation];
-	[self switchViewWithLibraryName:rec.libraryName];
+	if([[rec title] rangeOfString:@"UL"].location!=NSNotFound){
+		[self switchViewWithLibraryName:rec.libraryName];
+	}
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id <MKAnnotation>)annotation
+{
+	MKPinAnnotationView *pinAnnotation = nil;
+	static NSString *defaultPinID = @"myPin";
+	pinAnnotation = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+	if ( pinAnnotation == nil )
+		pinAnnotation = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
+	
+	pinAnnotation.canShowCallout = YES;
+	
+	RecordLocation *rl = annotation;
+	if([[rl title] rangeOfString:@"UL"].location!=NSNotFound){
+		UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+		pinAnnotation.rightCalloutAccessoryView = infoButton;
+	}
+	return pinAnnotation;
 }
 
 @end

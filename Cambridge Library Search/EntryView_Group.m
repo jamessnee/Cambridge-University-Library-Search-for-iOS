@@ -98,7 +98,7 @@ NSInteger currPosInArray = 0;
 	//Get the name of the library
 	NSMutableString *currLibName = [NSMutableString stringWithString:[[entry_full locationNames]objectAtIndex:[indexPath row]]];
 	[currLibName appendString:@"\n"];
-	[currLibName appendString:[[entry_full normalisedCallNos] objectAtIndex:[indexPath row]]];
+	[currLibName appendString:[[entry_full callNos] objectAtIndex:[indexPath row]]];
 	
 	UITableViewCell *currCell = [[UITableViewCell alloc]init];
 	[[currCell textLabel] setText:currLibName];
