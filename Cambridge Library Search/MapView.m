@@ -111,12 +111,14 @@
 }
  */
 
+/*
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
 	RecordLocation *rec = [view annotation];
 	if([[rec title] rangeOfString:@"UL"].location!=NSNotFound){
 		[self switchViewWithLibraryName:rec.libraryName];
 	}
 }
+ */
 
 - (MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -132,8 +134,14 @@
 	if([[rl title] rangeOfString:@"UL"].location!=NSNotFound){
 		UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 		pinAnnotation.rightCalloutAccessoryView = infoButton;
+		[infoButton addTarget:self action:@selector(showInternalLocation) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return pinAnnotation;
+}
+
+-(void)showInternalLocation{
+	RecordLocation *recLoc = (RecordLocation *) [recordLocations objectAtIndex:0];
+	[self switchViewWithLibraryName:[recLoc title]];
 }
 
 @end

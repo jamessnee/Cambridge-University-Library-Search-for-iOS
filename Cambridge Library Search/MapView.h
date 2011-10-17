@@ -47,4 +47,6 @@
 
 -(void)switchViewWithLibraryName:(NSString *)libraryName;
 
+-(void)showInternalLocation;
+
 @end
