@@ -582,9 +582,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "68ACFC3F-8844-48AA-A919-832021360623";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68ACFC3F-8844-48AA-A919-832021360623";
@@ -596,13 +597,18 @@
 		590415D713FC19DC00621782 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"ARCHS[sdk=*]" = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution: James Snee";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Snee";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Cambridge Library Search/Cambridge Library Search-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3782BAD9-4775-4BC4-BBD6-133C65723F82";
@@ -621,6 +627,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Cambridge Library SearchTests/Cambridge Library SearchTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -638,6 +645,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cambridge Library Search/Cambridge Library Search-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Cambridge Library SearchTests/Cambridge Library SearchTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
