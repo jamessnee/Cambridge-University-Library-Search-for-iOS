@@ -36,7 +36,9 @@
 	if(self){
 		self.title = n_title;
 		self.subtitle = n_subtitle;
-		self.libraryName = libName;
+		//self.libraryName = libName;
+		self.libraryName = [[libName stringByReplacingOccurrencesOfString:@":" withString:@" "] stringByReplacingOccurrencesOfString:@"'" withString:@""];
+		NSLog(@"Lib name after strip %@",[self libraryName]);
 		
 		NSArray *libraries = [RecordLocation getLibraryNames];
 		NSArray *locations = [RecordLocation getLibraryLocations];
@@ -49,9 +51,17 @@
 			if(textRange.location != NSNotFound)
 			{
 				NSString *longLat = [locations objectAtIndex:i];
+				
+				NSLog(@"Setting location at %@",longLat);
+				
 				NSArray *coords = [longLat componentsSeparatedByString:@","];
+				
 				float longd = [[coords objectAtIndex:1] floatValue];
+				NSLog(@"Long %f",longd);
+				
 				float lat = [[coords objectAtIndex:0] floatValue];
+				NSLog(@"Lat %f",lat);
+				
 				coordinate.latitude = lat;
 				coordinate.longitude = longd;
 			}
@@ -99,17 +109,17 @@
 			@"Homerton College",
 			@"Hughes Hall",
 			@"Jesus College",
-			@"King's College",
+			@"Kings College",
 			@"Lucy Cavendish College",
 			@"Magdalene College",
 			@"Murray Edwards College",
 			@"Newnham College",
 			@"Pembroke College",
 			@"Peterhouse",
-			@"Queen's College",
+			@"Queens College",
 			@"Robinson College",
-			@"St Catharine's College",
-			@"St Edmund's College",
+			@"St Catharines College",
+			@"St Edmunds College",
 			@"St Johns College",
 			@"Selwyn College",
 			@"Sidney Sussex College",

@@ -105,20 +105,6 @@
 }
 
 #pragma mark - MapView Stuff
-/*
-- (void)mapViewWillStartLoadingMap:(MKMapView *)mapView{
-
-}
- */
-
-/*
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
-	RecordLocation *rec = [view annotation];
-	if([[rec title] rangeOfString:@"UL"].location!=NSNotFound){
-		[self switchViewWithLibraryName:rec.libraryName];
-	}
-}
- */
 
 - (MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -136,6 +122,7 @@
 		pinAnnotation.rightCalloutAccessoryView = infoButton;
 		[infoButton addTarget:self action:@selector(showInternalLocation) forControlEvents:UIControlEventTouchUpInside];
 	}
+	
 	return pinAnnotation;
 }
 
