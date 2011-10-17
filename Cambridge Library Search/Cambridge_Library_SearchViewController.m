@@ -131,6 +131,7 @@ float progressIncrement=0;
 	progressBar.progress = progressBar.progress+progressIncrement;
 	[self parseAquabrowserData:responseString];
 
+	/*
 	if([entries count]==0){
 		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Results" message:@"There were no results found for your search" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
@@ -141,6 +142,7 @@ float progressIncrement=0;
 		
 		return;
 	}
+	 */
 }
 
 #pragma mark - JSON Parsing
@@ -179,8 +181,22 @@ float progressIncrement=0;
 	NSInteger pageNum = [pageNumStr intValue];
 	if(pageNum <= [[searchOptions numOfPages] intValue] && pageNum>previousPageNum)
 		[self searchAquabrowserThinPage:pageNum];
-	else
-		[self switchView];
+	else{
+		if([entries count]!=0){
+			[self switchView];
+		}else{//There were no results
+			UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Results" message:@"There were no results found for your search" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+			[alert show];
+			[alert release];
+			
+			//Tidy up
+			[searchButton setEnabled:YES];
+			[progressBar setProgress:0.0];
+			[progressBar setHidden:YES];
+			
+			return;
+		}
+	}
 }
 
 #pragma mark - View lifecycle
@@ -215,6 +231,7 @@ float progressIncrement=0;
 }
 
 - (void)switchView{
+	[progressBar setProgress:0.0];
 	[progressBar setHidden:YES];
 	[searchButton setEnabled:YES];
 	SearchResultsViewController *srvc = [[SearchResultsViewController alloc]initWithNibName:@"SearchResultsViewController" bundle:nil entries:entries];

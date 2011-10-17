@@ -86,16 +86,28 @@
 	floorPlan = [self rotateUIImage:floorPlan angle:90];
 	locationPlan = [self rotateUIImage:locationPlan angle:90];
 	
+	CGRect imageFrames = CGRectMake(0, 0, floorPlan.size.width, floorPlan.size.height);
 	CGRect frame = [[UIScreen mainScreen]bounds];
-	UIImageView *floorPlanView = [[UIImageView alloc]initWithFrame:frame];
+	
+	UIScrollView *scrollV = [[UIScrollView alloc]initWithFrame:frame];
+	CGSize imageSize = CGSizeMake(floorPlan.size.width, floorPlan.size.height+50);
+	scrollV.contentSize = imageSize;
+	
+	
+	UIImageView *floorPlanView = [[UIImageView alloc]initWithFrame:imageFrames];
 	[floorPlanView setImage:floorPlan];
+	floorPlanView.contentMode = UIViewContentModeScaleAspectFit;
 
 	
-	UIImageView *locationPlanView = [[UIImageView alloc]initWithFrame:frame];
+	UIImageView *locationPlanView = [[UIImageView alloc]initWithFrame:imageFrames];
 	[locationPlanView setImage:locationPlan];
+	locationPlanView.contentMode = UIViewContentModeScaleAspectFit;
 	
-	[self.view addSubview:floorPlanView];
 	[floorPlanView addSubview:locationPlanView];
+	[scrollV addSubview:floorPlanView];
+	[self.view addSubview:scrollV];
+	//[self.view addSubview:floorPlanView];
+	//[floorPlanView addSubview:locationPlanView];
 }
 
 -(UIImage *)getFloorPlan{
