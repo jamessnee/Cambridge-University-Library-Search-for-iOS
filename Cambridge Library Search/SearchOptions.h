@@ -36,11 +36,13 @@
 	NSString *searchType;
 	NSMutableArray *dbSelected;
 	NSNumber *numOfPages;
+	NSString *libNameRestraint;
 }
 
 @property (retain) NSString *searchType;
 @property (retain) NSMutableArray *dbSelected;
 @property (retain) NSNumber *numOfPages;
+@property (retain) NSString *libNameRestraint;
 
 -(void)addDb:(NSString *)dbName;
 -(void)removeDb:(NSString *)dbName;

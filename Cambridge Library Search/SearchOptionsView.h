@@ -20,6 +20,8 @@
 	IBOutlet UISlider *pagesNumSlider;
 	IBOutlet UILabel *pagesNumLabel;
 	
+	IBOutlet UITextField *libNameRestraint;
+	
 	NSArray *searchTypes;
 	
 	SearchOptions *searchOptions;
@@ -36,7 +38,6 @@
 
 @property (retain) IBOutlet UISlider *pagesNumSlider;
 @property (retain) IBOutlet UILabel *pagesNumLabel;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil searchOptions:(SearchOptions *)searchOpts;
 -(IBAction)dbSwitchChanged:(id)sender;

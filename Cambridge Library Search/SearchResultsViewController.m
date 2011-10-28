@@ -88,11 +88,18 @@ Entry * entry; //There must be a better way, but sice the connection is async it
 	}
 
 	Entry *en = (Entry *) [searchResults objectAtIndex:indexPath.row];
-	NSString *book_title = en.title;
+	NSMutableString *cellText = [NSMutableString stringWithString:@""];
+	[cellText appendFormat:@"%@",en.title];
+	[cellText appendString:@"--"];
+	for(NSString *libName in en.locationNames){
+		[cellText appendFormat:@"%@",libName];
+	}
+	//NSString *book_title = en.title;
 	[cell.textLabel setNumberOfLines:3];
 	[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
 	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-	[[cell textLabel] setText:book_title];
+	//[[cell textLabel] setText:book_title];
+	[[cell textLabel] setText:cellText];
 	
 	return cell;
 }

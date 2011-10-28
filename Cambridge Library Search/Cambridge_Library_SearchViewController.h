@@ -37,8 +37,6 @@
 @interface Cambridge_Library_SearchViewController : UIViewController{
 
     IBOutlet UITextField *txt_searchTerm;
-	//IBOutlet UIPickerView *searchTypePicker;
-	//NSArray *searchTypes;
     
     NSMutableData *returnedData;
 	SBJsonParser *parser;

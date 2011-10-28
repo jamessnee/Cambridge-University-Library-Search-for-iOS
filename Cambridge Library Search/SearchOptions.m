@@ -33,7 +33,7 @@
 #import "SearchOptions.h"
 
 @implementation SearchOptions
-@synthesize searchType, dbSelected, numOfPages;
+@synthesize searchType, dbSelected, numOfPages,libNameRestraint;
 
 
 - (id)init
