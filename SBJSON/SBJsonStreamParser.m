@@ -143,7 +143,7 @@ static NSNull *kNull;
 }
 
 - (void)maxDepthError {
-    self.error = [NSString stringWithFormat:@"Input depth exceeds max depth of %lu", maxDepth];
+    self.error = [NSString stringWithFormat:@"Input depth exceeds max depth of %lu", (unsigned long)maxDepth];
     self.state = [SBJsonStreamParserStateError sharedInstance];
 }
 

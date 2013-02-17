@@ -111,7 +111,7 @@
 }
 
 -(UIImage *)getFloorPlan{
-	NSString *url = [NSString stringWithString:@"http://www.lib.cam.ac.uk/floorplan2/plan_mobile.jpg"];
+	NSString *url = @"http://www.lib.cam.ac.uk/floorplan2/plan_mobile.jpg";
 	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
 	UIImage *image = [UIImage imageWithData:imageData];
 	return image;

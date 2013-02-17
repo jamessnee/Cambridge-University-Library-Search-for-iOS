@@ -30,6 +30,7 @@
 #import "MapView.h"
 #import "RecordLocation.h"
 #import <MapKit/MapKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @implementation EntryView_Group
 
@@ -66,6 +67,9 @@ NSInteger currPosInArray = 0;
 	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[entry_full coverImageURL]]];
 	UIImage *image = [UIImage imageWithData:imageData];
 	[coverImage setImage:image];
+	CALayer *layer = coverImage.layer;
+	layer.masksToBounds = YES;
+	layer.cornerRadius = 1;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -104,7 +108,8 @@ NSInteger currPosInArray = 0;
 	[[currCell textLabel] setText:currLibName];
 	[[currCell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
 	[[currCell textLabel] setNumberOfLines:0];
-	[currCell setFont:[UIFont fontWithName:@"Helvetica" size:(14.0)]];
+//	[currCell setFont:[UIFont fontWithName:@"Helvetica" size:(14.0)]];
+	[[currCell textLabel] setFont:[UIFont fontWithName:@"Helvetica" size:(14.0)]];
 	
 	NSLog(@"Setting cell with name %@",currLibName);
 	

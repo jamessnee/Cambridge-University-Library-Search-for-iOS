@@ -34,6 +34,8 @@
 		595CD1B1143354B30045DA40 /* SearchOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 595CD1AF143354B30045DA40 /* SearchOptionsView.m */; };
 		595CD1B2143354B30045DA40 /* SearchOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595CD1B0143354B30045DA40 /* SearchOptionsView.xib */; };
 		595CD1B7143360180045DA40 /* SearchOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 595CD1B6143360180045DA40 /* SearchOptions.m */; };
+		596C767814FDABA4006DF354 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 596C767714FDABA4006DF354 /* QuartzCore.framework */; };
+		5994554C16D1687600A85675 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5994554B16D1687600A85675 /* Default-568h@2x.png */; };
 		59A0DFD31405B05B0051F4D3 /* librarySearch-i.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD21405B05B0051F4D3 /* librarySearch-i.png */; };
 		59A0DFD51405B0700051F4D3 /* librarySearch-i4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */; };
 		59A0DFD71405B1930051F4D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A0DFD61405B1930051F4D3 /* Default.png */; };
@@ -102,6 +104,8 @@
 		595CD1B0143354B30045DA40 /* SearchOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchOptionsView.xib; sourceTree = "<group>"; };
 		595CD1B5143360180045DA40 /* SearchOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchOptions.h; sourceTree = "<group>"; };
 		595CD1B6143360180045DA40 /* SearchOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchOptions.m; sourceTree = "<group>"; };
+		596C767714FDABA4006DF354 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5994554B16D1687600A85675 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		59A0DFD11405ABA90051F4D3 /* Cambridge Library Search.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Cambridge Library Search.entitlements"; sourceTree = "<group>"; };
 		59A0DFD21405B05B0051F4D3 /* librarySearch-i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "librarySearch-i.png"; sourceTree = "<group>"; };
 		59A0DFD41405B0700051F4D3 /* librarySearch-i4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "librarySearch-i4.png"; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596C767814FDABA4006DF354 /* QuartzCore.framework in Frameworks */,
 				59C9820E13FE9E7300EA27E0 /* MapKit.framework in Frameworks */,
 				590415A213FC19DC00621782 /* UIKit.framework in Frameworks */,
 				590415A413FC19DC00621782 /* Foundation.framework in Frameworks */,
@@ -171,6 +176,7 @@
 		5904159213FC19DB00621782 = {
 			isa = PBXGroup;
 			children = (
+				5994554B16D1687600A85675 /* Default-568h@2x.png */,
 				59A0DFDA1405BB9C0051F4D3 /* SBJson */,
 				59A0DFD81405B37F0051F4D3 /* Default@2x.png */,
 				59A0DFD61405B1930051F4D3 /* Default.png */,
@@ -195,6 +201,7 @@
 		590415A013FC19DC00621782 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				596C767714FDABA4006DF354 /* QuartzCore.framework */,
 				59C9820D13FE9E7300EA27E0 /* MapKit.framework */,
 				590415A113FC19DC00621782 /* UIKit.framework */,
 				590415A313FC19DC00621782 /* Foundation.framework */,
@@ -370,7 +377,7 @@
 		5904159413FC19DB00621782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "James Snee";
 			};
 			buildConfigurationList = 5904159713FC19DB00621782 /* Build configuration list for PBXProject "Cambridge Library Search" */;
@@ -409,6 +416,7 @@
 				595CD1B2143354B30045DA40 /* SearchOptionsView.xib in Resources */,
 				59FA79E5143EDCAC005106A6 /* IndoorLocationView.xib in Resources */,
 				59F8B34E1447B03C0090CC69 /* books.png in Resources */,
+				5994554C16D1687600A85675 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
